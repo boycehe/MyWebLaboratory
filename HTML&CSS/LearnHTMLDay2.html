@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Language" content="zh-cn" />
+</head>
+<html>
+<body bgcolor = "#EFEFEF">
+
+	<!--在 XHTML、XML 以及未来的 HTML 版本中，不允许使用没有结束标签（闭合标签）的 HTML 元素。
+即使 <br> 在所有浏览器中的显示都没有问题，使用 <br /> 也是更长远的保障。
+-->
+	<p>这是段落</p>
+	<p>To break <br/>
+	 lines<br/>
+	  in a <br/>
+	  paragraph,<br/>
+	  use the br tag.</p>
+
+<h1>春晓</h1>
+<p>
+	    春眠不觉晓，
+        处处闻啼鸟。
+        夜来风雨声，
+        花落知多少。
+</p>
+<p>注意，浏览器忽略了源代码中的排版（省略了多余的空格和换行）</p>
+<b>This text is bold</b>
+<br/>
+<strong>This text is Strong</strong>
+<br/>
+<big>This text is big</big>
+<br/>
+<em>This text is emphasized</em>
+<br/>
+<i>This text is italic</i>
+<br/>
+<small>This text is small</small>
+<br/>
+This text contains
+<sub>subscript</sub>
+<br/>
+This text contains
+<sup>superscript</sup>
+
+<br/>
+<pre>
+		这是
+		预格式文本。
+			它保留了		空格
+			和换行。
+</pre>
+
+<p>pre 标签很适合显示计算机代码:</p>
+
+<pre>
+		for i = 1 to 10
+			print i
+		next i
+</pre>
+
+<!--此例演示如何在 HTML 文件中写地址。-->
+<br/>
+<address>
+	Written by <a href="mailto:webmaster@example.com">Donald Duck</a>.<br/>
+	Visit us at:<br>
+	Example.com<br>
+	Box 564,Disneyland<br>
+	USA
+</address>
+
+<!--此例演示如何实现缩写或首字母缩写。-->
+<ABBR title="etcetera">etc.</abbr>
+	<br/>
+	<acronym title="World Wide Web">WWW</acronym>
+	<p>在某些浏览器中，当您把鼠标移至缩略词语上时，title可用于展示表达的完整版本。</p>
+	<p>仅对于IE5中的acronym元素有效。</p>
+	<p>对于Netscape 6.2 中的abbr和acronym元素都有效。</p>
+
+<!--此例演示如何改变文字的方向。-->
+<p>
+ 如果您的浏览器支持 bi-directional override（bdo），下一行会从右向左输出(rtl);
+</p>
+
+<bdo dir="rtl">
+	Here is some Hebrew text
+</bdo>
+
+<!--此例演示如何实现长短不一的引用语。-->
+<br/>
+这是长的引用：
+<blockquote>
+这是长的引用。这是长的引用。这是长的引用。
+</blockquote>
+这是短的引用
+<q>
+	这是短的引用
+</q>
+<p>
+	使用blockquote元素的话，浏览器会插入换行和外边距，而q元素不会有任何特殊的呈现。
+</p>
+
+<!--此例演示如何标记删除文本和插入文本。-->
+<p>一打有<del>二十</del><ins>十二</ins>件。</p>
+<p>大多数浏览器会改写为删除文本和下划线文本</p>
+<p>一些老式的浏览器会把删除文本和下划线显示为普通文本。</p>
+
+</p>
+</body>
+</html>
+

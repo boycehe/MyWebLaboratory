@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Language" content="zh-cn" />
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.0/jquery.min.js">
+</script>
+<!--slideDown()与slideUp方法
+	要实现元素的滑动效果，需要调用jQuery中的两个方法，一个是slideDown(),另一个是slideUp(),其调用的语法格式介绍如下。
+	slideDown()方法的格式如下：
+	slideDown(speed,[callback]);
+	其功能是以动画的效果将所选择的元素的高度向下增大，使其呈现一种个“滑动”的效果，而元素的其他属性并不发生变化；参数speed为动画显示的速度，可选项[callback]为动画显示完成后，执行的回调函数。
+	slideUp()方法格式如下：
+	slideUp(speed,[callback]);
+	其功能是以动画的效果将所选择的元素的高度向上减小，同样也是仅仅改变告诉属性，其包含的参数作用与slideDown()方法一样。
+-->
+<!--功能描述
+在页面中，单击“标题”栏时，通过slideUp()方法，以动画的效果将“内容”栏中的图片向上滑动，直到完全看不见，并改变“标题”栏时，通过slideDown()方法，将“内容”栏中的图片向下滑动，直到全部显示，“标题”栏中的内容也同时发生相应改变
+-->
+<title>slideDown()与slideUp()方法</title>
+<style type ="text/css">
+body{
+	font-size: 13px
+}
+.divFrame{
+	width: 86px;
+	border: solid 1px #666
+}
+.divFrame .divTitle{
+	padding: 5px;
+	background-color: #eee
+}
+.divFrame .divContent{
+	padding: 8px
+}
+.divFrame .divContent img{
+	border: solid 1px #ccc;
+	padding: 2px
+}
+</style>
+<script>
+$(function(){
+	var blnShow = false;
+	var $Title = $(".divTitle");
+	var $Tip = $("#divTip");
+	$Title.click(function(){
+		if(!blnShow){
+			$("img").slideUp(3000,function(){
+				$Tip.html("关闭成功！");
+			})
+			$(this).html("显示图片");
+			blnShow = true;
+		}
+		else{
+			$Tip.html('');
+			$("img").slideDown(3000);
+			$(this).html('隐藏图片');
+			blnShow = false;
+		}
+		
+	})
+})
+</script>
+
+</head>
+<body>
+<div class="divFrame">
+	<div class="divTitle">隐藏图片</div>
+	<div class="divContent">
+		<img src="../img/th-4.jpg" alt=""/>
+		<div id="divTip"></div>
+	</div>
+</div>
+
+</body>
+</html>
+

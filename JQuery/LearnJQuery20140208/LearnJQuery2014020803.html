@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Language" content="zh-cn" />
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.0/jquery.min.js">
+</script>
+
+<!--toggle()
+
+形式一：无参数调用格式
+toggle()
+形式二:逻辑参数调用格式:
+toggle(switch)
+参数switch为一个bool值，即true或false true时候显示元素，否则隐藏元素
+形式三:动画效果调用格式
+toggle(speed,[callback]);
+其中参数speed和可选参数[callback]与方法show(speed,[callback])中的参数所表示的意义是一样的
+-->
+<title>toggle()方法</title>
+<style>
+body{
+	font-size: 13px;
+}
+.divFrame{
+	width: 180px
+}
+.divFrame .divMenu{
+	float: left
+}
+.divFrame .divContent{
+	float: right
+}
+.divFrame .divContent img{
+	display: none
+}
+.btn{
+	border: #666 1px solid;
+	padding: 2px;
+	width: 80px;
+	margin-bottom: 5px;
+	filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr=#ffffff,EndColorStr=#ECE9D8);
+}
+</style>
+<script>
+$(function(){
+	$("input:eq(0)").click(function(){
+		$("img").toggle();
+	})
+	$("input:eq(1)").click(function() {
+		var intI = 0;
+		var blnA = intI > 1;
+		$("img").toggle(blnA);
+	});
+	$("input:eq(2)").click(function(){
+		$("img").toggle(3000,function(){
+			$(this).css({
+				'border': 'solid 1px #ccc',
+				'padding': '2px'
+			});
+		})
+	});
+})
+</script>
+</head>
+<body>
+<div class="divFrame">
+	<div class="divMenu">
+		<input id="Button1" type="button" value="无参数" class="btn"/><br/>
+		<input id="Button2" type="button" value="逻辑显示" class="btn"/><br/>
+		<input id="Button3" type="button" value="动画显示" class="btn"/>
+	</div>
+	<div class="divContent">
+		<img src="../img/th-1.jpg" alt=""/>
+	</div>
+</div>
+</body>
+</html>
+

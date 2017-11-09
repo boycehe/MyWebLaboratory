@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Language" content="zh-cn" />
+
+<script src="jquery-1.3.2-release/dist/jquery.min.js">
+</script>
+<!--表单选择器-->
+<!--
+		:input  				获取所有input ，textarea，select         元素集合
+		:text     				获取所有单行文本框						   元素集合
+		:password   			获取所有密码框						   元素集合			
+		:radio					获取所有单选按钮							元素集合	
+		:checkbox				获取所有复选框							元素集合				
+		:submit					获取所有提交按钮							元素集合	
+		:image					获取所有图像域							元素集合	
+		:reset					获取所有重置按钮							元素集合	
+		:button 				获取所有按钮 								元素集合	
+		:file 					获取所有文件域							元素集合	
+-->
+
+<!--在一个页面表单中，创建11种常用的表单对象，根据表单选择器，先显示出所有表单对象的总量
+，然后显示各种不同类型的表单对象-->
+
+<title>使用jQuery表单过滤选择器</title>
+<style type="text/css">
+body{
+	font-size: 12px;
+	text-align: center
+}
+
+form{
+	width: 241px
+}
+
+textarea,select,button,input,span{
+	display: block;
+}
+
+.btn{
+	border: #666 1px solid;
+	padding: 2px;
+	width: 60px;
+
+	filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr=#ffffff,EndColorStr=#ECE9D8);
+}
+
+.txt{
+	border: #666 1px solid;
+	padding: 3px
+}
+
+.img{
+	padding: 2px;
+	border: solid 1px #ccc
+}
+
+.div{
+	border: solid 1px #ccc;
+	background-color: #eee;
+	padding: 5px
+}
+
+</style>
+
+<script>
+
+$(document).ready(function() {
+	$("#form1 div").html("表单共找出 Input 类型元素："+ $("#form1 :input").length);
+	$("#form1 div").addClass('div');
+	$("#form1:text").show(3000);
+	$("#form1:password").show(3000);
+	$("#form1:radio").show(3000);
+	$("#form1 #Span1").show(3000);
+	$("#form1 :checkbox").show(3000);
+	$("#form1 #Span2").show(3000);
+	$("#form1:submit").show(3000);
+	$("#form1:image").show(3000);
+	$("#form1:reset").show(3000);
+	$("#form1:button").show(3000);
+	$("#form1:file").show(3000);
+});
+
+</script>
+
+</head>
+<body>
+
+	<form id="form1">
+		<textarea class="txt"> TextArea</textarea>
+		<select><option value="0">Item 0</option></select>
+		<input type="text" value="PassWord" class="txt"/>
+		<input type="password" value="PassWord" class="txt"/>
+		<input type="radio" /><span id="Span1">Radio</span>
+		<input type="checkbox"/>
+		<span id="Span2">CheckBox</span>
+		<input type="submit" value="Submit" class="btn"/>
+		<input type="image" title="Image" src="img/th-1.jpg" class="img"/>
+		<input type="reset" value="Reset" class="btn"/>
+		<input type="button" value="Button" class="btn"/>
+		<input type="file" title="File" class="txt"/>
+		<div id="divShow"></div>
+
+	</form>
+
+
+</body>
+</html>
+

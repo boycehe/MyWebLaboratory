@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Language" content="zh-cn" />
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.0/jquery.min.js">
+</script>
+
+<!--
+在执行动画时，可通过stop()方法停止或delay()方法延时某个动画的执行。
+stop()与delay()方法的语法调用格式介绍如下。
+stop()方法的格式如下：
+stop([clearQueue],[gotoEnd]);
+该方法的功能是停止所选元素中正在执行的动画，其中可选参数[clearQueue]是一个bool值，表示是否停止
+正在执行的动画，另外一个可选参数[gotoEnd]也是一个bool值，表示是否立即完成正在执行的动画
+delay()方法的格式如下:
+delay(duration,[queueName])
+该方法的功能是设置一个延时值来推迟后续队列中的动画执行，其中参数duration为延时的时间值，单位为毫秒
+-->
+<!--功能描述
+
+在页面中，设置三个超级链接，分别"开始"，“停止”，“延时”
+，单击“开始”后，页面中的图片以“拉窗帘”的方式动画切换显示状态：
+单击“停止”后，立刻停止正在执行中的动画效果；单击“延时”后，动画切换显示效果延时2000毫秒后，再执行
+
+-->
+<title>动画停止和延时</title>
+<style>
+body{
+	font-size: 13px
+}
+.divFrame{
+	border: solid 1px #666;
+	width: 233px;
+	text-align: center
+}
+.divFrame .divTitle{
+	background-color: #eee;
+	padding: 5px 0px 5px 0px
+}
+.divFrame .divContent{
+	padding: 5px 0px 5px 0px
+}
+.divFrame .divContent img{
+	border: solid 1px #eee;
+	padding: 2px
+}
+</style>
+
+<script>
+$(function(){
+	$("a:eq(0)").click(function() {
+		$("img").slideToggle(3000);
+	});
+
+	$("a:eq(1)").click(function() {
+		$("img").stop();
+	});
+
+	$("a:eq(2)").click(function() {
+		$("img").delay(2000)
+				.slideToggle(3000);
+	});
+
+	})
+</script>
+
+</head>
+<body>
+
+	<div class="divFrame">
+		<div class="divTitle">
+			<a href="javascript:void(0)">开始</a>
+			&nbsp;&nbsp;|&nbsp;&nbsp;
+			<a href="javascript:void(0)">停止</a>
+			&nbsp;&nbsp;|&nbsp;&nbsp;
+			<a href="javascript:void(0)">延时</a>
+			&nbsp;&nbsp;|&nbsp;&nbsp;
+		</div>
+		<div class="divContent">
+			<img src="../img/th-2.jpg" alt="" title="Log图片"/>
+		</div>
+	</div>
+
+</body>
+</html>
+

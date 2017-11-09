@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Language" content="zh-cn" />
+
+<script src="jquery-1.3.2-release/dist/jquery.min.js">
+</script>
+<title>使用jQuery层次选择器</title>
+<style type="text/css">
+body{
+	font-size: 12px;
+	text-align: center
+}
+div,span{
+	float: left;
+	border: solid 1px #ccc;
+	margin: 8px;
+	display: none;
+	background-color:green
+}
+.clsFraA{
+	width: 65px;
+	height: 65px;
+}
+.clsFraP{
+	width: 45px;
+	height: 45px;
+	background-color: #eee
+}
+.clsFraC{
+	width: 25px;
+	height: 25px;
+	background-color: #ddd
+}
+</style>
+
+<script type="text/javascript">
+
+$(document).ready(function() {
+	$("#divMid").css('display', 'block');
+	$("div span").css('display', 'block')
+	$("div>span").css('display', 'block');
+	$("#divMid").next().css('display', 'block');
+	$("#divMid ~ div").css('display', 'block');
+	$("#divMid").nextAll().css('display', 'block');
+	$("#divMid").siblings('div').css('display', 'block');
+});
+
+</script>
+</head>
+<body>
+
+	<div class="clsFraA">Left</div>
+	<div class="clsFraA" id="divMid">
+		<span class="clsFraP" id="Span1">
+		 	<span class="clsFraC" id="Span2"></span>
+		 </span>
+	</div>
+	<div class="clsFraA">Right_1</div>
+	<div class="clsFraA">Right_2</div>
+
+</body>
+</html>
+

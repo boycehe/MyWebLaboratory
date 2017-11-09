@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Language" content="zh-cn" />
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.0/jquery.min.js">
+</script>
+<!--需求分析
+
+1)将尺寸不同的相片统一成宽度与高度相同的缩略图片，展示在页面中
+2)当单击“点击放大”链接时，以动画的效果放大至其原始图片，同时，隐藏“点击放大”链接，显示该图的基本信息
+3)当点击原始图片中的“关闭”按钮时，以动画的的效果将吐泡泡缩小成单击前的缩略图，
+4)在浏览放大后的原始图片时，又单击其他缩略图片，那么，处于放大状态的原始图片自动以动画的效果就行关闭，使得整个相册始终只有一个图片
+处于放大状态
+-->
+<title>动画方式浏览图片</title>
+<link type="text/css" href="css_Animate.css" rel="Stylesheet"/>
+<script type="text/javascript" src="js_Animate.js"></script>
+</head>
+<body>
+<div class="p_Lst">
+	<img alt=""src="../img/th-1.jpg"/>
+	<div class="p_Alt">
+		<h3>风景一</h3>
+	</div>
+</div>
+<div class="p_Lst">
+	<img alt=""src="../img/th-2.jpg"/>
+	<div class="p_Alt">
+		<h3>风景二</h3>
+	</div>
+</div>
+<div class="p_Lst">
+	<img alt=""src="../img/th-3.jpg"/>
+	<div class="p_Alt">
+		<h3>风景三</h3>
+	</div>
+</div>
+<div class="p_Lst">
+	<img alt=""src="../img/th-4.jpg"/>
+	<div class="p_Alt">
+		<h3>风景四</h3>
+	</div>
+</div>
+
+
+</body>
+</html>
+

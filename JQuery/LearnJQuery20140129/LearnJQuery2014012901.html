@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Language" content="zh-cn" />
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.0/jquery.min.js">
+</script>
+
+<!--
+
+			wrap(html)								html参数为字符串代码，用于生成元素并包裹所选元素				把所有选择的元素用其他字符串代码包裹起来
+			wrap(elem)								elem 参数用于包装所选元素的DOM元素							把所有选择的元素用其他DOM元素包装起来
+			wrap(fn)								fn参数为包裹结构的一个函数									把所有选择的元素用function函数返回的代码包裹起来
+			unwrap()								无参数													移除所选择元素的父元素或包裹标记
+			wrapAll(html)							html参数为字符串代码，用于生成元素并包裹所选元素				把所有选择的元素用单个元素包裹起来
+			wrapAll(elem)							elem参数用于包装所选元素的DOM元素							把所有选择的元素用单个DOM元素包裹起来
+			wrapInner(html)							html参数为字符串代码，用于生成元素并包裹所选元素				把所有选择的元素的子内容用字符串代码包裹起来
+			wrapInner(elem)							elem参数用于包装所选元素的DOM元素							把所有选择的元素的子内容（包括文本节点）用DOM元素包裹起来
+			wrapInner(fn)							fn参数为包裹结构的一个函数									把所有选择的元素的子内容（包括文本节点）用function函数返回的代码包裹起来
+
+
+
+-->
+<!--在页面中放置两个段落p标记，并在该标记内分别设置两个span标记，通过wrap()与wrapInner()两种方法，改变标记中的外部元素与内部文本的字体显示出来-->
+<title>包裹元素节点</title>
+<style>
+body{
+	font-size: 13px
+}
+p{
+	background-color: #eee;
+	padding: 5px;
+	width: 200px
+}
+</style>
+
+<script>
+$(document).ready(function() {
+	$("p").wrap("<b></b>");//所有短路标记字体加粗
+	$("span").wrapInner('<i></i>');//所有短路中的span标记斜体
+});
+</script>
+
+</head>
+<body>
+<p>最喜爱的体育运动:<span>羽毛球</span></p>
+<p>最爱看那些类型图书:<span>网络，技术</span></p>
+
+</body>
+</html>
+

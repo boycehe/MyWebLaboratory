@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Language" content="zh-cn" />
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.0/jquery.min.js">
+</script>
+<!--
+				语法格式									参数说明											功能描述
+
+			after(content)						content表示插入目标元素外部后面的内容					向所选择的元素外部后面插入内容
+			after(function)						通过function函数返回插入目标外部后面的内容				向所选择的元素外部后面插入function函数所返回的内容
+			before(content)						content表示插入目标元素外部前面的内容					向所选择的元素外部前面插入内容
+			before(function)					通过function函数返回插入目标外部前面的内容				向所选择的元素外部前面插入function函数所返回的内容
+			insertAfter(content)				content表示插入目标元素外部后面的内容					将所选择的元素插入另一个指定的元素外部后面
+			insertBefore(content)				content表示插入目标元素外部签名的内容					将所选择的元素插入另一个指定的元素外部前面
+-->
+<title>动态插入节点的方法</title>
+<style>
+ body{
+ 	font-size: 13px
+ }
+ span{
+ 	background-color: green
+ }
+</style>
+ <script>
+ $(document).ready(function() {
+ 	$("span").after(retHtml);
+ 	function retHtml(){
+ 		var str="<span><b>Write Less Do More</b></span>";
+ 		return str;
+ 	}
+ });
+ </script>
+</head>
+<body>
+<span>jQuery</span>
+
+</body>
+</html>
+

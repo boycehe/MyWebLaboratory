@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Language" content="zh-cn" />
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.0/jquery.min.js">
+</script>
+
+<!-- 元素内容操作-->
+<!--
+				html()			无参数					用于获取元素的HTML内容
+				html(val)		val参数为元素HTML内容		用于设置元素的HTML内容
+				text()			无参数					用于获取元素的文本内容
+				text(val)		val参数作为元素的文本内容	用于获取元素的文本内容
+
+ps:htm() 方法仅支持XHTML的文档,不能用于XML文档，二text()则既支持HTML也支持XML文档
+-->
+<!-- 		功能描述
+	在页面中，用html()和text()方法获取div标记中的内容，并将内容分别作为html(val)和text(val)的参数，
+	分别设置元素的内容，并将结果显示在页面中。
+
+-->
+<title>获取或设置元素的内容</title>
+<style type="text/css">
+body{
+	font-size: 15px;
+	text-align: center
+}
+div{
+	border: solid 1px #666;
+	padding: 5px;
+	width: 220px;
+	margin: 5px
+}
+</style>
+
+<script>
+
+$(document).ready(function(){
+
+var strHtml = $("#divShow").html();
+$("#divHTML").html(strHtml);
+  $("#divText").text("Hello world!");
+
+});
+
+
+</script>
+
+</head>
+<body>
+
+	<div id="divShow"><b><i>Write Less Do More</i></b></div>
+	<div id="divHTML"></div>
+	<div id="divText"></div>
+
+
+</body>
+</html>
+

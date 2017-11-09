@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Language" content="zh-cn" />
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.0/jquery.min.js">
+</script>
+<!--slideToggle(speed,[callback])
+该方法的功能是以动画的效果切换所选择元素的高度，
+即：如果高，则减少；如果低，则增大。同时，在每次执行动画完成后，
+可执行一个用于回调的函数。其包含的参数功能与方法slideDown()或slideUp()一样
+-->
+<!--功能描述
+在页面中，使用一个<div>标记包含一个<img>图片，当单击<div>元素时，通过slideToggle()方法，以动画的效果自动切换图片的高度状态
+-->
+<title>slideToggle()方法</title>
+<style type="text/css">
+.divFrame{
+	border: solid 1px #666;
+	background-color: #eee;
+	padding: 5px;
+	width: 149px
+}
+.divFrame img{
+	border:solid 1px #eee;
+	padding: 2px
+}
+</style>
+<script>
+$(function(){
+	$(".divFrame").click(function() {
+		$("img").slideToggle(3000,function(){
+			$("img").css('border', 'solid,1px #ccc');
+		})
+	});
+})
+</script>
+</head>
+<body>
+<div class="divFrame">
+	<img src="../img/th-5.jpg" alt="" title="风景画"/>
+</div>
+
+</body>
+</html>
+

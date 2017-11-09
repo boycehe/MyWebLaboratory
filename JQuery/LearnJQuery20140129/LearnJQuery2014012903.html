@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Language" content="zh-cn" />
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.0/jquery.min.js">
+</script>
+
+<!--删除元素-->
+<!--
+
+remove([expr])
+其中参数expr为可选项，如果接受参数，则该参数为筛选元素的jQuery表达式，通过该表述式获取指定的元素，并就行删除。
+empty()
+其功能为清空所选择的页面元素或所有的后代元素
+
+在页面中，通过ul标记展示列表数据信息，并设置一个按钮。单机该按钮时。将删除指定的标记元素
+
+-->
+
+<title>删除元素</title>
+<style>
+body{
+	font-size: 13px
+}
+ul{
+	width: 200px
+}
+ul li{
+	list-style: none;
+	padding: 0px;
+	height: 23px
+}
+span{
+	padding-left: 20px
+}
+.btn{
+	border: #666 1px solid;
+	padding: 2px;
+	width: 60px;
+	filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr=#ffffff,EndColorStr=#ECE9D8);
+}
+</style>
+<script>
+$(document).ready(function() {
+	$("ul li:first").css('font-weight', 'bold');
+	$("#Button1").click(function() {
+		$("ul li").remove("li[title=t]");//删除指定属性的元素
+		$("ul li:eq(1)").remove();//删除节点中第2个元素
+	});
+});
+</script>
+
+</head>
+<body>
+<ul>
+	<li>学号</li>
+	<li title="t">1001</li>
+	<li>1002</li>
+	<li>1003</li>
+	<li style="text-align:center;padding-top:5px">
+		<input id="Button1" type="button" 
+			    value="删除" class="btn"/>
+	</li>
+</ul>
+
+</body>
+</html>
+

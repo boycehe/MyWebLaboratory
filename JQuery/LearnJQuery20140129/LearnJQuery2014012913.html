@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Language" content="zh-cn" />
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.0/jquery.min.js">
+</script>
+
+<title>文本框中的事件应用</title>
+<!--
+在页面中，创建一个用于输入邮箱地址的文本框，使用jQuery与CSS结合，当用文本框获取时，样式发生变化，同时提示用户输入邮箱的方法。
+当用户在文本框中输入邮箱后，丢失焦点时，将检测其内容是否为空，如果不为空或者邮箱格式不符，样式将再次发生变化，同时提示出错信息，如果输入正确，样式将返回初始状态，并显示一张打沟的图片
+-->
+
+<style>
+body{
+	font-size: 13px
+}
+.divInit{
+	width: 390px;
+	height: 55px;
+	line-height: 55px;
+	padding-left: 20px
+}
+.txtInit{
+	border: #666 1px solid;
+	padding: 3px;
+	background-image:url('../img/th-1.jpg') 
+}
+.spnInit{
+	width: 179px;
+	height: 40px;
+	line-height: 40px;
+	float: right;
+	margin-top: 8px;
+	padding-left: 10px;
+	background-repeat: no-repeat
+}
+.divBlur{
+	background-color: #FEEEC2
+}
+.txtBlur{
+	border: #666 1px solid;
+	padding: 3px;
+	background-image: url('../img/th-2.jpg');
+}
+.spnBlur{
+	background-image: url('../img/th-3.jpg')
+}
+.divFocu{
+	background-color: #EDFED5
+}
+.spnSucc{
+	background-image:url('../img/th-4.jpg');
+	margin-top: 20px 
+}
+</style>
+<script>
+$(document).ready(function() {
+	$("#txtEmail").trigger('focus');
+	$("txtEmail").focus(function(){
+		$(this).removeClass('txtBlur').addClass('txtInit');
+		$("#email").removeClass('txtBlur').addClass('divFocu');
+		$("#spnTip").removeClass('spnBlur').removeClass('spnSucc').html("请输入您常用的邮箱地址！")
+	})
+
+	$("#txtEmail").blur(function(){
+		var vtxt = $("#txtEmail").val();
+		if (vtxt.length == 0) {
+			$(this).removeClass('txtInit').addClass('txtBlur');
+			$("#email").removeClass('divFocu').addClass("divBlur");
+			$("#spnTip").addClass('spnBlur').html("邮箱地址不能为空！");
+		}
+		else{
+			if (!chkEmail(vtxt)) {
+				$(this).removeClass('txtInit').addClass('txtBlur');
+				$("#email").removeClass('divFocu').addClass("divBlur");
+				$("#spnTip").addClass('spnBlur').html("邮箱格式不能为空！");
+			}
+		    else{
+		    	$(this).removeClass('txtBlur').addClass('txtInit');
+		    	$("#email").removeClass('divFocu');
+		    	$("#spnTip").removeClass('spnBlur').addClass('spnSucc').html("");
+		    };
+		};
+	})
+	/*
+    验证邮箱格式是否正确
+	*/
+	function chkEmail(strEmail){
+		if (!/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/.test(strEmail)) {
+			return true;
+		}
+		else{
+			return false;
+		};
+
+	}
+});
+</script>
+</head>
+<body>
+<form id="form1" action="#">
+	<div id="email" class="divInit">邮箱:
+		<spn id="spnTip" class="spnInit"></span>
+			<input id="txtEmail" type="text" class="txtInit"/>
+		</div>
+	</form>
+
+</body>
+</html>
+

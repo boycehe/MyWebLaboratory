@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Language" content="zh-cn" />
+
+<script src="jquery-1.3.2-release/dist/jquery.min.js">
+</script>
+
+<!--属性过滤器-->
+<!--	
+		[attribute]    						获取包含给定属性的元素						元素集合
+		[attribute=value]					获取等于给定的属性是某个特定值的元素			元素集合
+		[attribute!=value]    			    获取不等于给定的属性是某个特定值的元素		元素集合
+		[attribute^=value]					获取给定的属性是以某些值开始的元素			元素集合
+		[attribute$=value]					获取给定的属性是以某些值结束的元素			元素集合
+		[attribute*=value]					获取给定的属性是以包含某些值的元素			元素集合
+		[selector][selector2][selectorN]    获取满足多个条件的复合属性的元素				元素集合
+-->
+
+<!--在页面中，增加四个<div>标记，并设置不同的ID和title属性值，然后通过属性过滤选择器获取所指定的元素集合，并显示在页面中-->
+<title>使用jQuery属性过滤选择器</title>
+<style type="text/css">
+
+body{
+	font-size: 12px;
+	text-align: center
+}
+
+div{
+	float: left;
+	border: solid 1px #ccc;
+	margin: 8px;
+	width: 65px;
+	height: 65px;
+	display: none
+}
+
+</style>
+
+<script type="text/javascript">
+
+$(document).ready(function() {
+
+	$("div[id]").show(3000);
+	$("div[title='A']").show(3000);
+	$("div[title ^= 'A']").show(3000);
+	$("div[title $= 'A']").show(3000);
+	$("div[title *= 'A']").show(3000);
+	$("div[id = 'divAB']").show(3000);
+
+
+});
+
+
+
+</script>
+
+</head>
+<body>
+	
+	<div id="divID">ID</div>
+	<div title="A">Title A</div>
+	<div id="divAB" title="AB">id<br/>Title AB</div>
+	<div title="ABC">Title ABC</div>
+
+
+</body>
+</html>
+

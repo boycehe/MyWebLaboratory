@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Language" content="zh-cn" />
+
+<script src="jquery-1.3.2-release/dist/jquery.min.js">
+</script>
+
+<!--
+	在页面中，通过function()随机函数返回一个随机数字，依据该数字组成一个字符串作为
+	标记<img>属性src的值，由于是随机数字，因此每次获取的src属性都不一样，从而在页面中随机展示图片的效果
+-->
+
+<title>设置元素的属性(二)</title>
+<style>
+body{
+	font-size: 12px
+}
+.clsSpn{
+	float: left;
+	padding-top: 10px;
+	padding-left: 10px
+}
+.clsImg{
+	border: solid 1px #ccc;
+	padding: 3px;
+	float: left
+}
+</style>
+
+<script>
+$(document).ready(function() {
+	$("img").attr('src', function(){
+		return "img/th-"+Math.floor(Math.random()*10)+".jpg"
+	});
+	$("img").attr('title', '这是一副画');
+	$("img").addClass('clsImg');
+});
+</script>
+
+</head>
+<body>
+<img alt="" src="img/th-1.jpg" style="float:left"/>
+
+</body>
+</html>
+

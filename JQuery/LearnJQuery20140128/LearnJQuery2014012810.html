@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Language" content="zh-cn" />
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.0/jquery.min.js">
+</script>
+<title>类别切换</title>
+<!--通过toggleClass()方法切换不同的元素类别，其语法格式如下
+			toggleClass(class)
+	其中参数class为类别名称，其功能是当元素中含有名称为class的css类别时，删除该类别，否则
+	增加一个该名称的css类别
+-->
+<style>
+.clsImg{
+	border: solid 1px #666;
+	padding: 3px
+}
+</style>
+<script>
+$(document).ready(function() {
+	$("img").click(function() {
+		$(this).toggleClass('clsImg');
+	});
+});
+</script>
+</head>
+<body>
+
+<img src="../img/th-8.jpg" alt="" title="good picture"/>
+</body>
+</html>
+

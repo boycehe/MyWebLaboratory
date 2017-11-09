@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Language" content="zh-cn" />
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.0/jquery.min.js">
+</script>
+<!--toggle()
+
+在toggle()方法中，可以依次调用N个指定的函数，直到组后一个函数，然后重复对这些函数轮番调用。
+toggle() 方法的功能是每次单击后依次掉要你管函数，请书之一到“依次”这连个子，说明该方法在调用函数时并非随机或指定调用，而是通过
+函数设置的前后顺序进行调用，其掉要你管的语法格式如下：
+toggle(fn,fn2,[fn3,fn4,...]);
+其中参数fn，fn2，。。。，fnN为单击时依次调用的函数
+-->
+
+<!--
+在页面中，设置一个<img>标记，当用户第一次单击该图片时，变换另外一副图片；
+第二次单击图片时，变换第三幅图片；
+第三次单击
+-->
+
+<title>切换事件toggle</title>
+<style>
+body{
+	font-size: 13px
+}
+img{
+	border: solid 1px #ccc;
+	padding: 3px
+}
+</style>
+
+<script>
+$(document).ready(function() {
+
+
+	$("img").toggle(function() {
+
+		$("img").attr('src', '../img/th-1.jpg');
+		$("img").attr('title', this.src);
+
+	}, function() {
+		$("img").attr('src', '../img/th-2.jpg');
+		$("img").attr('title', this.src);
+	},function() {
+		$("img").attr('src', '../img/th-3.jpg');
+		$("img").attr('title', this.src);
+	});
+	
+});
+</script>
+</head>
+<body>
+<img src="../img/th-10.jpg"/>
+
+</body>
+</html>
+

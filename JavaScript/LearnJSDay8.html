@@ -1,0 +1,309 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Language" content="zh-cn" />
+</head>
+<body>
+<!--
+	window.location 对象用于获得当前页面的地址 (URL)，并把浏览器重定向到新的页面。
+
+	window.location 对象在编写时可不使用 window 这个前缀。
+	一些例子：
+	location.hostname 返回 web 主机的域名
+	location.pathname 返回当前页面的路径和文件名
+	location.port 返回 web 主机的端口 （80 或 443）
+	location.protocol 返回所使用的 web 协议（http:// 或 https://）
+-->
+
+
+<script>
+
+document.write(location.href);
+
+</script>
+
+<script>
+function newDoc()
+{
+	window.location.assign("http://www.baidu.com");
+}
+</script>
+
+<input type="button" value="加载新文档" onclick="newDoc()">
+
+<!--
+window.history 对象包含浏览器的历史。
+window.history 对象在编写时可不使用 window 这个前缀。
+为了保护用户隐私，对 JavaScript 访问该对象的方法做出了限制。
+一些方法：
+history.back() - 与在浏览器点击后退按钮相同
+history.forward() - 与在浏览器中点击按钮向前相同
+-->
+</br>
+<script>
+function goForward()
+{
+	window.history.forward();
+}
+</script>
+
+<input type="button" value="前进" onclick="goForward()">
+
+
+<!--
+window.navigator 对象包含有关访问者浏览器的信息。
+window.navigator 对象在编写时可不使用 window 这个前缀。
+-->
+</br>
+
+<div id="example"></div>
+<script>
+txt = "<p> Browser CodeName:" + navigator.appCodeName + "</p>";
+txt += "<p> Browser Name :" + navigator.appName + "</p>";
+txt += "<p> Browser Version :" + navigator.appVersion + "</p>";
+txt += "<p> cookies Enabled :" + navigator.cookieEnabled + "</p>";
+txt += "<p> Platform :" + navigator.platform + "</p>";
+txt += "<p> User-agent header :" + navigator.userAgent + "</p>";
+txt += "<p> User-agent language :" + navigator.systemLanguage + "</p>";
+document.getElementById("example").innerHTML = txt;
+</script>
+
+</br>
+<!--
+
+-->
+
+<script type = "text/javascript">
+
+function disp_alert()
+{
+	alert("再次向您问好！在这里，我们向您演示"+'\n' + "如何向警告框添加折行");
+}
+</script>
+
+<input type="button" onclick="disp_alert()" value="显示警告框"/>
+
+</br>
+<script type="text/javascript">
+
+function show_confirm()
+{
+	var r = confirm("Press a button");
+
+	if (r == true) 
+		{
+			alert("you Press OK!");
+		}
+	else
+		{
+			alert("you pressed cancel");
+		};
+}
+
+</script>
+
+<input type="button" onclick="show_confirm()" value="Show a confirm box"/>
+
+</br>
+
+<script>
+function disp_prompt()
+{
+	var name = prompt("请输入您的名字","Boyce");
+
+	if (name != null && name !="") 
+		{
+			document.write("您好！" + name + "今天过得怎么样？");
+		};
+
+}
+</script>
+
+<input type="button" onclick="disp_prompt()" value="显示提示框"/>
+
+</br>
+<!--
+	通过使用 JavaScript，我们有能力做到在一个设定的时间间隔之后来执行代码，而不是在函数被调用后立即执行。我们称之为计时事件。
+
+-->
+
+<!--单击本例中的按钮后，会在 5 秒后弹出一个警告框。-->
+<script>
+function timedMsg()
+{
+	var t = setTimeout("alert('5秒！')",5000);
+}
+</script>
+
+<form>
+<input type="button" value="显示定时警告框" onClick = "timedMsg()">
+</form>
+<p>请点击上面的按钮。警告框会在5秒后显示</p>
+
+</br>
+<!--本例中的程序会执行 2 秒、4 秒和 6 秒的计时。-->
+<script>
+function timedText()
+{
+	var t1 = setTimeout("document.getElementById('txt').value='2秒'",2000);
+	var t2 = setTimeout("document.getElementById('txt').value='4秒'",4000);
+	var t3 = setTimeout("document.getElementById('txt').value='6秒'",6000);
+}
+</script>
+
+<form>
+	<input type="button" value="显示计时的文本" onClick="timedText()">
+	<input type="text" id="txt">
+</form>
+<p>点击上面的按钮。输入框会显示已经逝去的时间(2,4,6)</p>
+
+</br>
+<!--在本例中，单击开始计时按钮后，程序开始从 0 以秒计时。-->
+<script type="text/javascript">
+var c = 0;
+var t;
+
+function timedCount()
+{
+	document.getElementById('txt1').value = c;
+	c = c+1;
+	t = setTimeout("timedCount()",1000);
+}
+
+</script>
+<form>
+	<input type="button" value="开始计时！" onClick="timedCount()">
+	<input type="text" id = "txt1">
+</form>
+<p>请点击上面的按钮。输入框会从0开始一直进行计时。</p>
+
+</br>
+<!--在本例中，点击计数按钮后根据用户输入的数值开始倒计时，点击停止按钮停止计时。-->
+<script>
+var c = 0;
+var t;
+function timeCount()
+{
+	document.getElementById('txt2').value = c;
+	c=c+1;
+	t = setTimeout("timeCount()",1000);
+}
+
+function stopCount()
+{
+   c= 0;
+   setTimeout("document.getElementById('txt2').value = 0",0);
+   clearTimeout(t);
+}
+
+</script>
+<form>
+	<input type="button" value="开始计时!" onClick="timeCount()">
+	<input type="text" id="txt2">
+	<input type="button" value="停止计时！" onClick="stopCount()">
+	</form>
+
+<p>请点击上面的"开始计时" 按钮来启动计时器。输入框会一直进行计时，从0开始。点击"停止计时" 可以终止计时并将计数置为0.</p>
+</body>
+
+</br>
+<!--
+一个 JavaScript 小时钟
+-->
+
+<script>
+function startTime()
+{
+	var today = new Date();
+	var h = today.getHours();
+	var m = today.getMinutes();
+	var s = today.getSeconds();
+	m = checkTime(m);
+	s = checkTime(s);
+	document.getElementById('txt3').innerHTML = h+":"+m+":"+s;
+	t = setTimeout('startTime()',500);
+}
+
+function checkTime(i)
+{
+	if(i < 10)
+	{
+		i = "0" + i;
+		
+	}
+	return i;
+}
+
+</script>
+
+<div id="txt3"></div>
+
+<input type="button" value="点击显示电子钟" onclick="startTime()">
+
+<!--
+cookie 用来识别用户。
+cookie 是存储于访问者的计算机中的变量。每当同一台计算机通过浏览器请求某个页面时，就会发送这个 cookie。你可以使用 JavaScript 来创建和取回 cookie 的值。
+-->
+
+<!--
+利用用户在提示框中输入的数据创建一个 JavaScript Cookie，当该用户再次访问该页面时，根据 cookie 中的信息发出欢迎信息
+-->
+
+<!--
+利用用户在提示框中输入的数据创建一个 JavaScript Cookie，当该用户再次访问该页面时，根据 cookie 中的信息发出欢迎信息
+-->
+
+<script type = "text/javascript">
+function getCookie(c_name)
+{
+	if (document.cookie.length >0)
+	 {
+	 	c_start = document.cookie.indexOf(c_name+"=");
+	 	if (c_start != -1)
+	 	 {
+	 	 	c_start = c_start + c_name.length+1;
+	 	 	c_end = document.cookie.indexOf(";",c_start);
+	 	 	if (c_end == -1)
+	 	 	 {
+	 	 	 	c_end = document.cookie.length;
+	 	 	 	return unescape(document.cookie.substring(c_start,c_end));
+	 	 	 };
+	 	 };
+
+	 	 return "";
+	 };
+}
+
+
+function setCookie(c_name,value,expiredays)
+{
+	var exdate = new Date();
+	exdate.setDate(exdate.getDate() + expiredays);
+	document.cookie = c_name+"=" + escape(value)+((expiredays == null) ? "" : "; expires="+exdate.toGMTString())
+}
+
+function checkCookie()
+{
+	username = getCookie('username');
+	if (username != null && username !="")
+	 {
+	 	alert('Welcome again '+username+'!');
+	 }
+	 else
+	 	{
+	 		username = prompt('Please enter your name:',"");
+
+	 		if (username != null && username !="")
+	 		 {
+	 		 	setCookie('username',username,365);
+	 		 };
+
+	 	};
+}
+
+</script>
+
+<input type="button" value="click me" onclick="checkCookie()">
+
+</html>

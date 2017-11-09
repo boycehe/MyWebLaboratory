@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Language" content="zh-cn" />
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.0/jquery.min.js">
+</script>
+<!--功能描述
+在显示大量文本内容时，为了能显示更多的段落内容，有时仅显示一部分的提要，隐藏另一部分的内容，
+当用户需要查看这些隐藏的内容时，只要单击页面中的“显示”链接就可以，查看完后，再单击“隐藏”链接
+便将该部分内容再次隐藏起来。
+-->
+<title>show()与hide()方法</title>
+<style type="text/css">
+body{
+	font-size: 13px
+}
+.artFram{
+	border: solid 1px #ccc;
+	background-color: #eee;
+	width: 260px;
+	padding: 8px;
+	word-break:break-all
+}
+.artList{
+	line-height: 1.8em
+}
+</style>
+
+<script type="text/javascript">
+$(function(){
+	var $link = $(".artList a");//获取单击文本
+	var $hide = $(".artList :eq(2)");//获取隐藏的段落
+	$link.click(function() {
+		if ($(this).html() == "显示") {
+			//如果未显示
+			$(this).html("隐藏");
+			$hide.show();
+		}else{
+		 $(this).html("显示");
+		 $hide.hide();
+		};
+	});
+})
+</script>
+
+</head>
+<body>
+
+	<div class="artFram">
+		<div class="artList">
+			<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+			<span>一个优秀的程序开发员，除需要掌握专业的开发语言，还要具有</span>
+			<span style="display:none">执着，沉稳，细致的专业素质</span>
+			&nbsp;<a href="javascript:void(0)">显示</a>
+		</div>
+	</div>
+</body>
+</html>
+

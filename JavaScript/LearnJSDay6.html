@@ -1,0 +1,348 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Language" content="zh-cn" />
+<title>JavaScript 对象</title>
+</head>
+<body onload="startTime()">
+
+<script>
+person  = new Object();
+person.firstname = "Bill";
+person.lastname = "Gates";
+person.age = 56;
+person.eyecolor = "blue";
+document.write(person.firstname + " is " + person.age + " Years old.");
+</script>
+
+<script>
+person = {firstname:"Bill",lastname:"Gates",age:56,eyecolor:"blue"};
+
+document.write('</br>'+person.firstname + " is " + person.age + " Years old.");
+</script>
+
+<script>
+function person(firstname,lastname,age,eyecolor)
+{
+	this.firstname = firstname;
+	this.lastname = lastname;
+	this.age = age;
+	this.eyecolor = eyecolor;
+}
+
+myFather = new person("Bill","Gates",56,"blue");
+document.write('</br>'+myFather.firstname+"is" + myFather.age + "Years old.");
+
+</script>
+
+<p id="demo"></p>
+<script>
+var x;
+var txt = "";
+var person = {fname:"Bill",lname:"Gates",age:56};
+for (x in person) {
+	txt=txt + person[x]+"</br>";
+
+};
+
+document.getElementById("demo").innerHTML=txt;
+
+</script>
+
+<script>
+var x;
+document.write("<p>只有17位:");
+x = 1234567890;
+document.write(x + "</p>");
+document.write("<p>0.2 + 0.1 = ");
+x = 0.2 + 0.1;
+document.write(x + "</p>");
+document.write("<p>可分别乘以10并除以10:");
+x = (0.2*10+0.1*10)/10;
+document.write(x + "</p>");
+
+</script>
+
+
+<script>
+var y = 0377;
+var z = 0xFF;
+
+document.write(y + z);
+</script>
+
+<script type = "text/javascript">
+var txt = "Hello world!"
+document.write(txt.length);
+</script>
+
+<script type = "text/javascript">
+
+var txt = "Hello world!"
+document.write("<p>Big:" + txt.big() + "</p>");
+document.write("<p>Small: " + txt.small() + "</p>");
+
+document.write("</p>Bold: " + txt.bold() + "</p>");
+document.write("</p>Italic: " + txt.italics() + "</p>");
+
+document.write("</p> Blink: " + txt.blink() + "</p>");
+document.write("</p> Fixed: " + txt.fixed() + "</p>");
+document.write("</p> Strike: " + txt.strike() + "</p>");
+
+document.write("</p> Fontcolor: " + txt.fontcolor("Red") + "</p>");
+document.write("</p> Fontsize: " + txt.fontsize(16) + "</p>");
+
+document.write("</p> Lowercase: " + txt.toLowerCase() + "</p>");
+document.write("</p> Uppercase: " + txt.toUpperCase() + "</p>");
+
+document.write("<p> Subscript: " + txt.sub()+ "</p>");
+document.write("<p> Superscript " + txt.sup() + "</p>");
+
+document.write("<p>Link:" + txt.link("http://www.baidu.com") + "</p>");
+
+document.write("<hr/>");
+document.write(txt.indexOf("Hello") + "<br/>");
+document.write(txt.indexOf("World") + "<br/>");
+document.write(txt.indexOf("world") + "<br/>");
+
+document.write("<hr/>");
+document.write(txt.match("world") + "<br/>");
+document.write(txt.match("World") + "<br/>");
+document.write(txt.match("worlld") + "<br/>");
+document.write(txt.match("world!"));
+
+document.write("<hr/>");
+var str = "Vist Microsoft!";
+document.write(str.replace(/Microsoft/,"W3School"));
+
+</script>
+
+
+
+<script>
+document.write("<h1> JavaScript Date（日期）对象 <h1/>");
+document.write("<返回当前日期:<br/>");
+document.write(Date());
+var d = new Date();
+document.write("</br>从1970/01/01 至今已经过去了" + d.getTime() + "毫秒");
+
+//如何使用 setFullYear() 设置具体的日期。
+
+d.setFullYear(1992,10,3);
+document.write(d);
+
+//如何使用 toUTCString() 将当日的日期（根据 UTC）转换为字符串。
+
+document.write(d.toUTCString());
+
+//如何使用 getDay() 和数组来显示星期，而不仅仅是数字。
+
+var weekday = new Array(7);
+weekday[0] = "周日";
+weekday[1] = "周一";
+weekday[2] = "周二";
+weekday[3] = "周三";
+weekday[4] = "周四";
+weekday[5] = "周五";
+weekday[6] = "周六";
+document.write("<br/>今天是" + weekday[d.getDay()]);
+
+//如何在网页上显示一个钟表。
+function startTime()
+{
+	var today = new Date();
+	var h = today.getHours();
+	var m = today.getMinutes();
+	var s = today.getSeconds();
+	//add a zero in front of numbers < 10
+	m = checkTime(m);
+	s = checkTime(s);
+	document.getElementById('txt').innerHTML=h+":"+m+":"+s;
+	t = setTimeout('startTime()',500);
+}
+
+
+function checkTime (i) {
+	if (i<10) {
+		i="0" + i;
+	};
+
+	return i;
+}
+
+</script>
+<div id="txt"></div>
+
+<script>
+var mycars = new Array();
+mycars[0] = "Saab";
+mycars[1] = "Volvo";
+mycars[2] = "BMW";
+
+for(i = 0; i< mycars.length;i++)
+{
+	document.write(mycars[i] + "<br/>");
+}
+
+var x;
+for (x in mycars) {
+	document.write(mycars[x] + "<br/>");
+};
+
+var arr = new Array(3);
+arr[0] = "George";
+arr[1] = "John";
+arr[2] = "Thomas";
+
+var arr2 = new Array(3);
+arr2[0] = "James";
+arr2[1] = "Adres";
+arr2[2] = "Martin";
+
+document.write(arr.concat(arr2) + "<br/>");
+
+var arr3 = new Array(3);
+arr3[0] = "George";
+arr3[1] = "John";
+arr3[2] = "Thomas";
+
+document.write("<br/>");
+document.write(arr3.join("."));
+
+document.write("<hr/>");
+
+var arr4 = new Array(6);
+
+arr4[0] = "George";
+arr4[1] = "John";
+arr4[2] = "Thomas";
+arr4[3] = "James";
+arr4[4] = "Adrew";
+arr4[5] = "Martin";
+
+document.write(arr4 + "<br/>");
+document.write(arr4.sort());
+
+function sortNumber(a,b)
+{
+	return a-b;
+}
+
+
+var arr5 = new Array(6);
+
+arr5[0] = "10";
+arr5[1] = "5";
+arr5[2] = "40";
+arr5[3] = "25";
+arr5[4] = "1000";
+arr5[5] = "1";
+
+document.write(arr5 + "<br/>");
+document.write(arr5.sort(sortNumber));
+
+var b1 = new Boolean(0);
+var b2 = new Boolean(1);
+var b3 = new Boolean("");
+var b4 = new Boolean(null);
+var b5 = new Boolean(NaN);
+var b6 = new Boolean("false");
+
+document.write("0 是逻辑的 " + b1 + "<br/>");
+document.write("1 是逻辑的 " + b2 + "<br/>");
+document.write("空字符串是逻辑的 " + b3 + "<br/>");
+document.write("null 是逻辑的 " + b4 + "<br/>");
+document.write("NaN 是逻辑的 " + b5 + "<br/>");
+document.write("字符串'false' 是逻辑的 " + b6 + "<br/>");
+
+document.write(Math.round(0.60) + "<br/>");
+document.write(Math.round(0.50) + "<br/>");
+document.write(Math.round(0.49) + "<br/>");
+document.write(Math.round(-4.40) + "<br/>");
+document.write(Math.round(-4.60) + "<br/>");
+
+document.write("随机数" + Math.random());
+
+document.write(Math.min(5,7) + "<br/>");
+document.write(Math.min(-3,5) + "<br/>");
+document.write(Math.min(-3,-5) +"<br/>");
+document.write(Math.min(7.25,7.30));
+
+
+var patt1 = new RegExp("e");
+document.write("<br/>"+patt1.test("The best things in life are free"));
+document.write("<br/>"+patt1.exec("The best things in life are free"));
+
+var patt2 =  new RegExp("e","g");
+
+do
+{
+	result = patt2.exec("The best things in life are free");
+    document.write(result);
+}
+while
+	(result != null);
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Language" content="zh-cn" />
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.0/jquery.min.js">
+</script>
+<!--传统的JavaScript方法
+创建两个页面a.html和b.html,前者用于加载页，在该页中，单击“加载”按钮后，在不刷新该页面的情况下，将b.html页中的内容显示
+在a.html页面的<div>标记中;后者用与被加载页，在该页中,通过<div>标记包含一些文字内容。
+-->
+<title>传统的JavaScript方法实现Ajax功能</title>
+<style>
+body{
+	font-size: 13px
+}
+.divFrame{
+	width: 260px;
+	border: solid 1px #666
+}
+.divFrame .divTitle{
+	padding: 5px;
+	background-color: #eee
+}
+.divFrame .divContent{
+	padding: 8px
+}
+.divFrame .divContent .clsShow{
+	font-size: 14px
+}
+.btn{
+	border: #666 1px solid;
+	padding: 2px;
+	width: 80px;
+	filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr=#ffffff,EndColorStr=#ECE9D8);
+}
+
+</style>
+<script type="text/javascript">
+		$(function(){
+				
+			$("#Button1").click(function(){
+
+				$.getJSON("UserInfo.json",function(data){
+
+					console.log( "step1" );
+
+					$("#divTip").empty();
+					var strHTML = "";
+					$.each(data,function(InfoIndex,Info){
+						strHTML += "姓名:" + Info["name"] + "<br/>";
+						strHTML += "性别:" + Info["sex"] + "<br/>";
+						strHTML += "邮箱:" + Info["email"] + "<hr/>";
+					})
+					$("#divTip").html(strHTML);
+
+				})
+
+			})
+
+
+		})
+</script>
+</head>
+<body>
+	<div class="divFrame">
+		<div class="divTitle">
+			<input id="Button1" type="button" onclick="GetSendData()" class="btn" value="获取数据"/>
+		</div>
+		<div class="divContent">
+			<div id="divTip"></div>
+		</div>
+	</div>
+</body>
+</html>
+

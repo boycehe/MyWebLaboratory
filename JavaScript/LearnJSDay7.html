@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Language" content="zh-cn" />
+</head>
+<body>
+<p id = "demo"></p>
+<script>
+var w=window.innerWidth
+|| document.documentElement.clientWidth
+|| document.body.clientWidth;
+
+var h=window.innerHeight
+|| document.documentElement.clientHeight
+|| document.body.clientHeight;
+
+x = document.getElementById("demo");
+//x.innerHTML="浏览器的内部窗口宽度：" + w + "，高度：" + h + "。";
+x.innerHTML = "浏览器的内部宽度:" + w + ",高度:" + h + ".";
+</script>
+
+<script>
+document.write("可用宽度：" + screen.availWidth);
+</script>
+
+<script>
+function newDoc()
+{
+	window.location.assign("http://www.baidu.com");
+}
+</script>
+
+
+<p>
+<input type="button" value="加载新文档" onclick="newDoc()">
+</p>
+
+<script>
+function goBack()
+{
+	window.history.back();
+}
+</script>
+
+
+<script>
+</script>
+
+</body>
+</html>

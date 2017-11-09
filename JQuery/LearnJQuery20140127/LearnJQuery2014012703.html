@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Language" content="zh-cn" />
+
+<script src="jquery-1.3.2-release/dist/jquery.min.js">
+</script>
+
+<style type="text/css">
+body{
+	font-size: 12px;
+	text-align: center
+}
+
+div{
+	width: 24px;
+	height: 83px;
+	border: solid 1px #eee
+}
+
+h1{
+	font-size: 13px
+}
+
+u1{
+	list-style-type: none;
+	padding: 0px
+}
+
+.DefClass,.NotClass{
+	height: 23px;
+	width: 60px;
+	line-height: 23px;
+	float: left;
+	border-top: solid 1px #eee;
+	border-bottom: solid 1px #eee
+}
+
+.GetFocus{
+	width: 58px;
+	height: 50px;
+	border: solid 1px #666;
+	background-color: #7fb80e;
+	color: #d64f44;
+
+}
+
+#spnMove{
+	width: 238px;
+	height: 23px;
+	line-height: 23px;
+}
+
+</style>
+
+<script type="text/javascript">
+
+$(document).ready(function() {
+	$("li:first").addClass('GetFocus');
+	$("li:last").addClass('GetFocus');
+	$("li:not(.NotClass)").addClass('GetFocus');
+	$("li:even").addClass('GetFocus');
+	$("li:odd").addClass('GetFocus');
+	$("li:eq(1)").addClass('GetFocus');
+	$("li:gt(1)").addClass('GetFocus');
+	$("li:lt(4)").addClass('GetFocus');
+	$("div h1").css('width', '238');
+	$(":header").addClass('GetFocus');
+	
+	animateIt();
+
+	function animateIt(){
+		$("#spnMove").slideToggle("slow",animateIt);
+	}
+
+
+});
+
+</script>
+
+
+</head>
+<body>
+<div>
+	<h1>基本过滤选择器</h1>
+	<ul>
+		<li class="DefClass">Item 0</li>
+		<li class="DefClass">Item 1</li>
+		<li class="NotClass">Item 2</li>
+		<li class="DefClass">Item 3</li>
+		<li class="myClass">Item 4</li>
+		<li class="yourClass">Item 5</li>
+	</ul>
+	<span id="spnMove">Span Move</span>
+</div>
+
+
+
+</body>
+</html>
+

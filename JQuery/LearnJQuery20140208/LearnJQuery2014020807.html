@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Language" content="zh-cn" />
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.0/jquery.min.js">
+</script>
+<!--简单的动画
+	animate()方法给开发者自定义各种复杂，高级的动画提供了极大的方便和空间，其调用的语法格式为:
+	animate(params,[duration],[easing],[callback]);
+	其中，参数params表示用于制作动画效果的属性样式和值的集合。可选项[duration]表示三种默认的速度字符"slow",
+	"normal","fast"或自定义的数字。可选项[easing]为动画插件使用，用于控制动画的表现效果，通常"linear"和"swing"字符值
+	。可选项[callback]为动画完成后，执行的回调函数。
+	在动画方法animate()中，第一个参数params在表示动画属性时，需要采用“骆驼”写法，即如果是“font-size”，必须挟持“fontSize”才
+	有效，否则报错
+-->
+<title>简单的动画</title>
+<style>
+.divFrame{
+	border: solid 1px #ccc;
+	background-color: #eee;
+	width: 60px;
+	height: 60px;
+	font-size: 13px;
+	padding: 5px
+}
+</style>
+<script>
+$(function(){
+	$(".divFrame").click(function() {
+		$(this).animate({
+			left:"130px",
+			top:"90px",
+			width:"20%",
+			height:"170px"
+		},
+		3000,
+		function(){
+			$(this).css('border', 'solid 3px #666').html("变大了！");
+		})
+	});
+})
+</script>
+</head>
+<body>
+<div class="divFrame">
+	点击变大
+</div>
+
+</body>
+</html>
+

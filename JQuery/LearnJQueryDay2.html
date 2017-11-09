@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Language" content="zh-cn" />
+<!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js">-->
+<script src="jquery-1.3.2-release/dist/jquery.min.js">
+</script>
+<script>
+$(document).ready(function() {
+	$(".fade").click(function() {
+		$("#div1").fadeTo("slow",0.15);
+		$("#div2").fadeTo("slow",0.4);
+		$("#div3").fadeTo("slow",0.7);
+	});
+	
+});
+</script>
+
+<script>
+$(document).ready(function() {
+	$(".flip").click(function() {
+		$(".panel").slideDown('slow');
+	});
+});
+</script>
+
+<style type = "text/css">
+div.panel,p.flip
+{
+	margin: 0px;
+	padding: 5px;
+	text-align: center;
+	background: #e5eecc;
+	border: solid 1px #c3c3c3;
+}
+div.panel
+{
+	height: 120px;
+	display: none;
+}
+</style>
+
+<script>
+$(document).ready(function() {
+	$(".animation").click(function() {
+		
+			/*
+			left:'250px',
+			opacity:'0.5',
+			height:'150px',
+			width:'150px'
+			*/
+			/*
+			left:'250px',
+			height:'+=150px',
+			width:'+=150px'
+			*/
+			/*
+			height:'toggle'
+			*/
+			/*
+			var div=$("#aa");
+			div.animate({height: '300px', opacity:'0.4'}, "slow");
+			 div.animate({width:'300px',opacity:'0.8'},"slow");
+    		 div.animate({height:'100px',opacity:'0.4'},"slow");
+    		 div.animate({width:'100px',opacity:'0.8'},"slow");
+    		 */
+
+		
+	});
+});
+</script>
+
+</head>
+<body>
+	<p>演示带有不同参数的 fadeTo() 方法</p>
+	<button class="fade">点击这里，使三个矩形淡出</button>
+	<br/>
+	<div id="div1" style="width:80px;height:80px;background-color:red;"></div>
+	<br/>
+	<div id="div2" style="width:80px;height:80px;background-color:green;"></div>
+	<br/>
+	<div id="div3" style="width:80px;height:80px;background-color:blue;"></div>
+
+	<div class="panel">
+		<p>W3School - 领先的Web 技术教程站点</p>
+		<p>在 W3School,你可以找到你所需要的所有网站建设教程</p>
+	</div>
+	<p class="flip">请点击这里</p>
+	<br/>
+	<button class="animation">开始动画</button>
+	<p>默认情况下，所有 HTML 元素的位置都是静态的，并且无法移动。如需对位置进行操作，记得首先把元素的 CSS position 属性设置为 relative、fixed 或 absolute。</p>
+	<div id="aa" style="background:#98bf21;height:100px;width:100px;position:absolute;">
+	</div>
+</body>
+</html>
+

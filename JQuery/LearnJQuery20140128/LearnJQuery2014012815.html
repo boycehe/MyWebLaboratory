@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Language" content="zh-cn" />
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.0/jquery.min.js">
+</script>
+<!--			复制节点
+ 		clone()其功能为赋值匹配的DOM元素并且选中赋值成功的元素，该方法仅是复制元素本身，被
+ 		复制后的新元素不具有任何元素的行为。如果需要在赋值时将该元素的全部行为也进行复制，可以通过方法clone(true)
+ 		实现，其格式为:
+ 		clone(true)
+ 		其中的参数设置为true就可以赋值元素的所有时间处理。
+-->
+<!--		功能描述
+
+	在页面中，创建一个img标记，显示一副图片；当单击该图片时，在其右侧通过clone()方法复制一副图片
+-->
+<title>复制元素节点</title>
+<style>
+img{
+	border: solid 1px #ccc;
+	padding: 3px;
+	margin: 5px
+}
+</style>
+
+<script>
+$(document).ready(function() {
+	$("img").click(function() {
+		$(this).clone(true).appendTo('span');
+	});
+});
+</script>
+
+</head>
+<body>
+<span><img title="封面" src="../img/th-4.jpg"/></span>
+
+</body>
+</html>
+

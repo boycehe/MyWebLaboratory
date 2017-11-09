@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Language" content="zh-cn" />
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.0/jquery.min.js">
+</script>
+
+<!--hover()
+
+调用jQuery中的好hover()方法可以使元素在鼠标悬停与鼠标移出的事件中就行切换，该方法在实现运用中，也可以通过
+jQuery中的事件mouseenter与mouseleave进行替换。
+下列是等价的
+代码一
+$("a").hover(function(){
+	
+},function(){
+	
+})
+
+代码二
+$("a").mouseenter(function(){
+	
+})
+
+$("a").mouseleave(function(){
+	
+})
+
+hover()功能是当鼠标移动到所选的元素上面时，执行指定的第一个函数；当鼠标移出的时候执行指定第二个函数，其语法格式如下
+hover(over,out)
+
+-->
+
+<!--功能描述
+
+在页面中，创建一个<div>标记，在该标记中，设置另外连个<div>元素，一个用于显示标题，另一则用于显示内容
+，调用jQuery中的hover()方法。将鼠标移到标题时，自动显示内容；鼠标移出标题时，关闭显示内容
+-->
+
+<title>切换事件hover</title>
+<style>
+body{
+	font-size: 13px
+}
+.clsFrame{
+	border: solid 1px #666;
+	width: 220px
+}
+.clsFrame .clsTitle{
+	background-color: #eee;
+	padding: 5px;
+	font-weight: bold
+}
+.clsFrame .clsContent{
+	padding: 5px;
+	display: block;
+}
+</style>
+
+<script>
+$(document).ready(function() {
+
+
+	$(".clsTitle").hover(function() {
+		$(".clsContent").show();
+			
+	}, function() {
+		$(".clsContent").hide();
+	
+	})
+});
+</script>
+
+</head>
+<body>
+<div class="clsFrame">
+	<div class="clsTitle">jQuery简介</div>
+	<div class="clsContent">&nbsp;&nbsp;jQuery是由美国人John Resig于2006年创建的一个开源项目，他的主旨是：以
+		更少的代码，实现更多的功能(Write less,do more).
+	</div>
+</div>
+
+</body>
+</html>
+

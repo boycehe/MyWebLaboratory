@@ -1,0 +1,74 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Language" content="zh-cn" />
+<html>
+<body>
+
+<script>
+person = new Object();
+person.firstname = "Bill";
+person.lastname="Gates";
+person.age = 56;
+person.eyecolor="blue";
+document.write(person.firstname + " is " + person.age + " years old.")
+</script>
+
+<script>
+var message = "Hello world!";
+var x = message.toUpperCase();
+document.write(x);
+</script>
+
+<script>
+//在函数外声明的变量是全局变量，网页上的所有脚本和函数都能访问它。
+var mm = "boyce";
+
+/*
+   JavaScript 对大小写敏感。关键词 function 必须是小写的，并且必须以与函数名称相同的大小写来调用函数
+ */
+function myFunction(name,job)
+{
+	//如果您把值赋给尚未声明的变量，该变量将被自动作为全局变量声明。
+	
+	test = "no show";
+
+	alert("Welcome" + name + ", the" + job);
+}
+
+
+</script>
+
+<button onclick="myFunction('Bill Gates','CEO')">点击显示详情</button>
+
+</br>
+<p id="demo1"></p>
+<script>
+
+function mFunction()
+{
+	/*
+	   在 JavaScript 函数内部声明的变量（使用 var）是局部变量，所以只能在函数内部访问它。（该变量的作用域是局部的）。
+您可以在不同的函数中使用名称相同的局部变量，因为只有声明过该变量的函数才能识别出该变量。
+只要函数运行完毕，本地变量就会被删除。
+	 */
+	carname="Volvo";
+	var x = 5;
+	return x;
+}
+
+var m = mFunction();
+document.getElementById("demo1").innerHTML=mFunction();
+
+document.write(mm+"</br>");
+document.write(carname);
+document.write(test);
+
+</script>
+
+
+</body>
+</html>

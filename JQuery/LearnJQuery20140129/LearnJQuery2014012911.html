@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Language" content="zh-cn" />
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.0/jquery.min.js">
+</script>
+
+<!--one()
+one()方法功能是为所选的元素绑定一个仅触发一次的处理函数，其调用的语法格式为:
+one(type,[data],fn)
+其中参数type为事件类型，即需要出发什么类型的事件；参数data为可选参数，表示作为
+event.data属性值传递给事件对象的额外数据对象；fn为绑定事件时所要出发的函数。
+-->
+<!--功能描述
+在页面中，设置一个按钮，初始值为“点击查看联系方式”，当点击按钮时，通过one()方法，将联系方式显示在按钮上，
+再次点击则不响应任何事件
+
+-->
+<title>其他时间one</title>
+<style>
+.btn{
+	border: #666 1px solid;
+	padding: 2px;
+	width: 160px;
+	filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr=#ffffff,EndColorStr=#ECE9D8);
+}
+</style>
+<script>
+$(document).ready(function() {
+	function btn_Click(){
+		alert("hehe");
+		this.value="010-33345353"
+	}
+	$("input").bind('click',btn_Click);
+});
+</script>
+</head>
+<body>
+
+<input id="Button1" type="button" value="点击查看联系方式" class="btn"/>
+</body>
+</html>
+

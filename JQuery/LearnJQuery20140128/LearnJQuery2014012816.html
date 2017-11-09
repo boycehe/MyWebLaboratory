@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Language" content="zh-cn" />
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.0/jquery.min.js">
+</script>
+<!--
+		replaceWith(content)
+		该方法的功能是将所有选择的元素替换成指定的HTML或DOM元素，其中参数content为被
+		所选择元素替换的内容
+		replaceAll(selector)
+		该方法的功能是将所有选择的元素替换成指定selector的元素，其中参数selector为需要被替换的元素
+
+-->
+<title>替换元素节点</title>
+<style>
+body{
+	font-size: 13px
+}
+span{
+	font-weight: bold
+}
+p{
+	background-color: #eee;
+	padding: 5px;
+	width: 200px
+}
+</style>
+
+<script>
+$(document).ready(function() {
+	$("#Span1").replaceWith("<span title='replaceWITH'>陶国荣</span>");
+	$("<span title='replaceAll'>tao_guo_rong@163.com</span>").replaceAll("#Span2");
+});
+</script>
+
+</head>
+<body>
+<p>姓名:<span id="Span1"></span></p>
+<p>邮箱:<span id="Span2"></span></p>
+
+</body>
+</html>
+

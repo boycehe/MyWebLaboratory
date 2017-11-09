@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Language" content="zh-cn" />
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.0/jquery.min.js">
+</script>
+<!--trigger()
+在所选择的元素上出发指定类型的事件
+trigger(type,[data]);
+
+在页面中，创建一个文本框，并给文本框设置一个默认值，当该页面加载时，自动获取文本框中的值，显示在页面中，同时，文本框处于选中状态
+
+-->
+<title>其他时间trigger</title>
+<style>
+body{
+	font-size: 13px
+}
+.txt{
+	border: #666 1px solid;
+	padding: 3px
+}
+</style>
+
+<script>
+$(document).ready(function() {
+	var oTxt = $("input");
+	oTxt.trigger('select');
+	oTxt.bind("btn_Click",function(){
+		var txt = $(this).val();
+		$("#divTip").html(txt);
+	})
+	oTxt.trigger('btn_Click');
+});
+
+</script>
+</head>
+<body>
+姓名：<input id="Text1" type="text" class="txt" value="陶国荣"/>
+		<div id="divTip" style="padding-top:Spx"></div>
+
+</body>
+</html>
+

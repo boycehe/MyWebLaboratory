@@ -1,0 +1,92 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Language" content="zh-cn" />
+<html>
+<body>
+<script>
+var carname1 = "Bill Gates";
+var carname2 = 'BILL GATES';
+var answer1 = "Nice to meet you!";
+var answer2 = "He is called 'Bill'";
+var answer3 = 'He is called "Bill"';
+
+document.write(carname1+"<br>");
+document.write(carname2+"<br>");
+document.write(answer1 + "<br>");
+document.write(answer2 + "<br>");
+document.write(answer3 + "<br>");
+</script>
+
+<script>
+var x1 = 36.0;
+var x2 = 36;
+var y = 123e5;
+var z = 123e-5;
+
+document.write(x1+"<br/>");
+document.write(x2+"<br/>");
+document.write(y+"<br/>");
+document.write(z+"<br/>");
+
+</script>
+
+
+<script>
+
+var i;
+var cars = new Array();
+cars[0] = "Audi";
+cars[1] = "BMW";
+cars[2] = "Volvo"
+
+for(i = 0;i<cars.length;i++)
+{
+	document.write(cars[i]+"<br>");
+}
+
+
+var cars1 = new Array("h1","h2","h3");
+for(i = 0;i<cars1.length;i++)
+{
+	document.write(cars1[i]+"<br>");
+}
+
+var cars2 = ["h31","h32","h33"];
+for(i = 0;i<cars2.length;i++)
+{
+	document.write(cars2[i]+"<br>");
+}
+
+</script>
+
+<script>
+var person = {firstname:"Bill",lastname:"Gates",id:5566};
+
+var personA = {
+firstname : "boyce",
+lastname  : "Gates",
+id        :  5566
+}
+
+document.write(person.lastname + "<br />");
+document.write(person["lastname"]+ "<br />");
+
+
+</script>
+
+<script>
+var person ;
+var car="Volvo";
+document.write(person+"<br/>");
+document.write(car+"<br/>");
+var car = null;
+document.write(car+"<br/>");
+</script>
+
+
+</body>
+</html>
+

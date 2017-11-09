@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Language" content="zh-cn" />
+
+<script src="jquery-1.3.2-release/dist/jquery.min.js">
+</script>
+<!--
+
+	选择器			 		功能				     		 返回值
+:contains(text) 	获取包含给定文本的元素   	   		    元素集合
+:empty				获取所有不包含子元素或者文本的空元素		元素集合
+:has(selector)		获取含有选择器所匹配的元素的元素			元素集合
+:parent				获取含有子元素或者文本的元素			元素集合
+
+-->
+
+<!--						功能描述
+	在页面中，根据需要创建四个<div>标记，并在其中的<div>中新建一个<span>标记
+	,其余<div>标记中输入内容(或为空),通过内容过滤器获取指定的元素，并显示在页面中。
+-->
+<title>使用jQuery内容过滤选择器</title>
+<style type="text/css">
+body{
+	font-size: 12px;
+	text-align: center
+}
+
+div{
+	float: left;
+	border: solid 1px #ccc;
+	margin: 8px;
+	width: 65px;
+	height: 65px;
+	display: none
+}
+
+span{
+	float: left;
+	border: solid 1px #ccc;
+	margin: 8px;
+	width: 45px;
+	height: 45px;
+	background-color: #eee
+}
+</style>
+
+<script>
+
+$(document).ready(function() {
+	$("div:contains('A')").css('display', 'block');
+	$("div:empty").css('display', 'block');
+	$("div:has(span)").css('display', 'block');
+	$("div:parent").css('display', 'block');
+});
+
+</script>
+
+</head>
+<body>
+
+	<div>ABCD</div>
+	<div><span></span></div>
+	<div>EFaH</div>
+	<div></div>
+
+
+</body>
+</html>
+

@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Language" content="zh-cn" />
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.0/jquery.min.js">
+</script>
+<!--插入节点-->
+<!--内部插入节点
+
+			语法格式										参数说明												功能描述
+
+		append(content)								content表示追加到目标中的内容						向所选择的元素内部插入内容
+		append(function(index,html))				通过function函数返回追加到目标中的内容				向所选择的元素内部插入function函数所返回的内容
+		appendTo(content)							conent表示被追加的内容								把所选的元素追加到另一个指定的元素集合中
+		prepend(content)							content表示插入目标元素内部前面的内容				向每个所选择的元素内部前置内容
+		prepend(function(index,html))				通过function函数返回插入目标元素内部前面的内容		向所选择的元素内部前置function函数所返回的内容
+		prependTo(content)							content表示用于选择元素的jQuery表达式				将所选择的元素前置到另一个指定的元素集合中
+-->
+
+<title>动态插入节点方法</title>
+<style>
+body{
+	font-size: 13px
+}
+</style>
+
+<script>
+$(document).ready(function() {
+	$("div").append(retHtml);
+	function retHtml(){
+		var str="<b><i>Write Less Do More</i></b>";
+		return str;
+	}
+});
+</script>
+
+</head>
+<body>
+<div>jQuery</div>
+
+</body>
+</html>
+

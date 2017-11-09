@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Language" content="zh-cn" />
+
+<script src="jquery-1.3.2-release/dist/jquery.min.js">
+</script>
+
+<!--子元素过滤选择器-->
+<!--
+		:nth-child(eq|even|odd|index)    		获取每个父元素的特定位置元素，索引号从1开始		元素集合
+		:first-child							获取每个父元素下的第一个元素					元素集合
+		:last_child								获取每个父元素下的最后一个元素					元素集合
+		:only-child								获取每个父元素下的仅有一个子元素					元素集合
+-->
+<!--
+	在页面中，创建三个<ul>标记，前两个标记中设置四个<li>,后一个标记中设置一个<li>,通过子元素过滤选择器获取指定的页面元素，并改变选择后的状态显示在页面中
+-->
+<title>使用jQuery子元素过滤选择器</title>
+<style type="text/css">
+	body{
+		font-size: 12px;
+		text-align: center
+	}
+
+	ul{
+		width: 241px;
+		list-style-type: none;
+		padding: 0px
+	}
+
+	ul li{
+		height: 23px;
+		width: 60px;
+		line-height: 23px;
+		float: left;;
+		border-top: solid 1px #eee;
+		border-bottom: solid 1px #eee;
+		margin-bottom: 5px
+	}
+
+	.GetFocus{
+		width: 58px;
+		border:solid 1px #666;
+		background-color: #009ad6
+	}
+</style>
+
+<script	type="text/javascript">
+
+$(document).ready(function() {
+	$("li:first-child").addClass('GetFocus');
+	$("li:nth-child(2)").addClass('GetFocus');
+	$("li:last-child").addClass('GetFocus');
+	$("li:only-child").addClass('GetFocus');
+});
+
+</script>
+
+
+</head>
+<body>
+
+	<ul>
+		<li>Item 1-0</li>
+		<li>Item 1-1</li>
+		<li>Item 1-2</li>
+		<li>Item 1-3</li>
+	</ul>
+
+	<ul>
+		<li>Item 2-0</li>
+		<li>Item 2-1</li>
+		<li>Item 2-2</li>
+		<li>Item 2-3</li>
+	</ul>
+
+	<ul>
+		<li>Item 3-0</li>
+	</ul>
+
+
+</body>
+</html>
+

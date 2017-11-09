@@ -1,0 +1,167 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Language" content="zh-cn" />
+
+<script src="jquery-1.3.2-release/dist/jquery.min.js">
+</script>
+
+<!--什么是遍历？-->
+<!--
+jQuery 遍历，意为“移动”，用于根据其相对于其他元素的关系来“查找”（或选取）HTML 元素。以某项选择开始，并沿着这个选择移动，直到抵达您期望的元素为止。
+下图展示了一个家族树。通过 jQuery 遍历，您能够从被选（当前的）元素开始，轻松地在家族树中向上移动（祖先），向下移动（子孙），水平移动（同胞）。这种移动被称为对 DOM 进行遍历。
+-->
+<!--向上遍历 DOM 树-->
+<!--
+这些 jQuery 方法很有用，它们用于向上遍历 DOM 树：
+parent()
+parents()
+parentsUntil()
+-->
+<style>
+.ancestors *
+{
+	display: block;
+	border: 2px solid lightgrey;
+	color: lightgrey;
+	padding: 5px;
+	margin: 15px;
+}
+</style>
+
+<style>
+.descendants *
+{
+	display: block;
+	border: 2px solid lightgrey;
+	color: lightgrey;
+	padding: 5px;
+	margin: 15px;
+}
+</style>
+
+<style>
+.siblings *
+{
+	display: block;
+	border: 2px solid lightgrey;
+	color: lightgrey;
+	padding: 5px;
+	margin: 15px;
+}
+</style>
+
+<script>
+$(document).ready(function() {
+	$("h2").siblings().css({
+		"color":"red",
+		"border":"2px solid red"
+	});
+});
+</script>
+
+
+<script>
+$(document).ready(function() {
+	/*
+	$("div").children().css({
+		"color":"red",
+		"border":"2px solid red"
+	});
+	*/
+	$("div").children('p.1').css({
+		"color":"red",
+		"border":"2px solid red"
+	});
+
+});
+</script>
+<!--
+<script>
+$(document).ready(function() {
+	/*
+	$("span").parent().css({
+		'color': 'red',
+		'border': '2px solid red'
+	});
+	*/
+   /*
+     
+	$("span").parents().css({
+		'color': 'red',
+		'border': '2px solid red'
+	});
+ 
+   $("span").parentsUntil("div").css({
+		'color': 'red',
+		'border': '2px solid red'
+	});
+	*/
+	$("span").parentsUntil("div").css({
+		"color":"red",
+		"border":"2px solid red"
+	});
+
+	
+
+
+});
+</script>
+-->
+<!--
+向下遍历 DOM 树
+下面是两个用于向下遍历 DOM 树的 jQuery 方法：
+-->
+
+
+
+<!--
+jQuery parentsUntil() 方法
+parentsUntil() 方法返回介于两个给定元素之间的所有祖先元素。
+下面的例子返回介于 <span> 与 <div> 元素之间的所有祖先元素：
+-->
+
+<!--在 DOM 树中水平遍历-->
+<!--
+有许多有用的方法让我们在 DOM 树进行水平遍历：
+siblings()
+next()
+nextAll()
+nextUntil()
+prev()
+prevAll()
+prevUntil()
+-->
+
+</head>
+<body class="siblings">body (曾曾祖父)
+
+
+<div>div (父)
+  <p>p</p>
+  <span>span</span>
+  <h2>h2</h2>
+  <h3>h3</h3>
+  <p>p</p>
+</div>
+
+<div class="descendants" style="width:500px;">div (当前元素) 
+  <p class="1">p (子)
+    <span>span (孙)</span>     
+  </p>
+  <p class="2">p (子)
+    <span>span (孙)</span>
+  </p> 
+</div>
+
+  <div style="width:500px;">div (曾祖父)
+    <ul>ul (祖父)  
+      <li>li (直接父)
+        <span>span</span>
+      </li>
+    </ul>   
+  </div>
+</body>
+</html>
+

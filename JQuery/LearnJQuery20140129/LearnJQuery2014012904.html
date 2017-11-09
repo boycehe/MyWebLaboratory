@@ -1,0 +1,153 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Language" content="zh-cn" />
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.0/jquery.min.js">
+</script>
+
+
+<!--综合案例分析    数据删除和图片预览在项目中应用-->
+<!--需求分析
+
+1）在页面中创建一个表格，用于展示多项数据信息，各行间采用隔行变色的方法展示每一行的数据
+2）如果选中表格中某行的复选项，并单机表格下面的“删除”按钮，那么将输出其选中的行；选中“全选”
+复选框后，再次单击“删除”按钮时，将删除表格的全部行数据。
+3）如果将鼠标移到表格中某行的小图片上，将在该图片的右下角出现一副与之对应的大图片，用于实现图片预览的效果
+-->
+
+<title>数据管理</title>
+<style>
+body{
+	font-size: 12px
+}
+table{
+	width: 360px;
+	border-collapse: collapse
+}
+table tr th,td{
+	border: solid 1px #666;
+	text-align: center
+}
+table tr td img{
+	border: solid 1px #ccc;
+	padding: 3px;
+	width: 42px;
+	height: 60px;
+	cursor: hand
+}
+table tr th{
+	background-color: #ccc;
+	height: 32px
+}
+.clsImg{
+	position:absolute;
+	border: solid 1px #ccc;
+	padding: 3px;
+	width: 170px;
+	height: 240px;
+	background-color: #eee;
+	display: none
+}
+.btn{
+	border: #666 1px solid;
+	padding: 2px;
+	width: 50px;
+	filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr=#ffffff,EndColorStr=#ECE9D8);
+}
+</style>
+
+<script>
+$(document).ready(function() {
+	$("table tr:nth-child(odd)").css('background-color', '#eee');//隔行变色
+
+	$("#chkAll").click(function() {
+		if (this.checked) {
+			$("table tr td input[type=checkbox]").attr('checked', true);
+		}
+		else
+			{
+				$("table tr td input[type=checkbox]").attr('checked', false);
+			};
+	});
+
+	$("#btnDel").click(function() {
+		var intL =$("table tr td input:checked:not('#chkAll')").length;
+		if(intL != 0){
+			$("table tr td  input[type=checkbox]:not('#chkAll')").each(function(index){
+				if(this.checked){
+					$("table tr[id=" + this.value + "]").remove();
+				}
+			})
+		}
+	});
+
+	$("table tr td img").mouseout(function() {
+		$("#imgTip").hide();
+	});
+
+	var x = 5; var y = 15;
+	$("table tr td img").mousemove(function(e) {
+
+		$("#imgTip").attr("src", this.src).css({
+			'top': (e.pageY+y) + "px",
+			'left': (e.pageX + x) + "px"
+		}).show(400);
+	});
+
+	
+
+});
+</script>
+
+</head>
+<body>
+<table>
+	<tr>
+		<th>选项</th>
+		<th>编号</th>
+		<th>封面</th>
+		<th>购书人</th>
+		<th>性别</th>
+		<th>购书价</th>
+	</tr>
+	<tr id="0">
+		<td><input id="Checkbox1" type="checkbox" value="0"/></td>
+		<td>1001</td>
+		<td><img src="../img/th-4.jpg" alt=" "/></td>
+		<td>李晓明</td>
+		<td>男</td>
+		<td>35.6元</td>
+	</tr>
+	<tr id="1">
+		<td><input id="Checkbox2" type="checkbox" value="1"/></td>
+		<td>1002</td>
+		<td><img src="../img/th-5.jpg" alt=" "/></td>
+		<td>柳梦梅</td>
+		<td>女</td>
+		<td>38.6元</td>
+	</tr>
+	<tr id="2">
+		<td><input id="Checkbox3" type="checkbox" value="0"/></td>
+		<td>1003</td>
+		<td><img src="../img/th-6.jpg" alt=" "/></td>
+		<td>王大川</td>
+		<td>男</td>
+		<td>351.6元</td>
+	</tr>
+	
+</table>
+<table>
+<tr>
+	<td style="text-align:left;height:28px">
+		<span><input id="chkAll" type="checkbox"/>全选</span>
+		<span><input id="btnDel" type="button" value="删除" class="btn"/></span>
+	</td>
+</tr>
+</table>
+<img id="imgTip" class="clsImg" src="../img/th-10.jpg"/>
+
+</body>
+</html>
+

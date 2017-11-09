@@ -1,0 +1,129 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta http-equiv="Content-Language" content="zh-cn" />
+</head>
+<body onload="checkCookies()">
+<p id = "p1">Hello World!</p>
+<p id = "p2">Hello World!</p>
+
+<script>
+document.getElementById("p2").style.color = "blue";
+document.getElementById("p2").style.fontFamily="Arial";
+document.getElementById("p2").style.fontSize="larger";
+</script>
+<p>上面的段落已被一段脚本修改。</p>
+<P id = "p3">这是一段文本。</p>
+<input type = "button" value = "隐藏文本" onclick="document.getElementById('p3').style.visibility='hidden'"/>
+<input type = "button" value = "显示文本" onclick="document.getElementById('p3').style.visibility='visible'"/>
+
+<!--当用户点击鼠标时-->
+<h1 onclick="this.innerHTML='谢谢！'">请点击该文本<h1>
+
+<script>
+function changetext(id)
+{
+	id.innerHTML="谢谢";
+}
+</script>
+
+<h2 onclick="changetext(this)">请点击该文本</h1>
+
+<button id = "myBtn" >点击这里</button>
+<script>
+function displayDate()
+{
+ document.getElementById("demo").innerHTML=Date();
+}
+</script>
+
+<p id = "demo"></p>
+
+<script>
+document.getElementById("myBtn").onclick = function(){displayDate()};
+</script>
+
+<script>
+function checkCookies()
+{
+	if(navigator.cookieEnabled == true)
+	{
+		alert("已启用cookie");
+	}
+	else
+	{
+		alert("未启用cookie");
+	}
+}
+</script>
+
+<script>
+function yyFunction()
+{
+	var x = document.getElementById("fname");
+	x.value = x.value.toUpperCase();
+}
+</script>
+
+</br>
+请输入英文字符:<input type = "text" id = "fname" onchange = "yyFunction()">
+<p>当您离开输入字段时，会触发将文本转换为大写函数</p>
+
+<div onmouseover = "mOver(this)" onmouseout = "mOut(this)" sytle = "background-color:red;width:120x;height:20px;padding:40px;color:#ffffff;">
+	把鼠标移到上面</div>
+
+
+<script>
+function mOver(obj)
+{
+	obj.innerHTML = "谢谢"
+}
+
+function mOut(obj)
+{
+	obj.innerHTML = "把鼠标移到上面"
+}
+</script>
+
+<div onmousedown = "mDown(this)" onmouseup="mUp(this)" style = "background-color:green;color:#ffffff;width:90px;height:20px;padding:40px;font-size:12px;">请点击这里</div>
+<script>
+function mDown(obj)
+{
+	obj.style.backgroundcolor="#1ec5e5";
+	obj.innerHTML="请释放鼠标按钮"
+}
+
+function mUp(obj)
+{
+	obj.style.backgroundcolor="green";
+	obj.innerHTML="请按下鼠标按钮"
+}
+</script>
+
+<div id="div1">
+<p id="p4">这是一个段落。</p>
+<p id="p5">这是另一个段落。</p>
+</div>
+
+<!--
+<script>
+var para = document.createElement("p");
+var node = document.createTextNode("这是新段落");
+para.appendChild(node);
+
+var element = document.getElementById("div1");
+element.appendChild(para);
+</script>
+-->
+<script>
+var parent = document.getElementById("div1")
+var child = document.getElementById("p4");
+parent.removeChild(child);
+</script>
+
+
+</body>
+</html>
+

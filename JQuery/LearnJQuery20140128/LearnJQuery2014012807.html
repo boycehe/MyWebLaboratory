@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Language" content="zh-cn" />
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.0/jquery.min.js">
+</script>
+
+<!--获取或设置元素值-->
+<!--
+	在页面中，创建一个可以多选的select标记，设置该标记的change事件,当按Ctrl键选多项时，通过p标记
+	将获取的选项显示在页面中；另外，创建 一个文本框元素，设置该文本框的change和focus事件，当文本框获得焦点时，
+	清空文本框中的内容；当文本框输入字符时，通过另外一个p标记将所获取的文本值即时显示在页面中
+-->
+
+<title>获取或设置元素的值</title>
+
+<style type="text/css">
+body{
+	font-size: 12px;
+	text-align: center
+}
+
+div{
+	padding: 3px;
+	margin: 3px;
+	width: 120px;
+	float: left
+}
+.txt{
+	border: #666 1px solid;
+	padding: 3px
+}
+</style>
+
+<script>
+
+$(document).ready(function() {
+	$("select").change(function(){
+		var strSel = $("select").val().join(",");
+		$("#p1").html(strSel);
+	})
+
+	$("input").change(function() {
+		var strTxt = $("input").val();
+		$("#p2").html(strTxt);
+	});
+
+	$("input").focus(function() {
+		$("input").val("");
+	});
+});
+
+</script>
+</head>
+<body>
+	<div>
+		<select multiple="multiple" style="height:96px;width:85px">
+			<option value="1">Item 1 </option>
+			<option value="2">Item 2 </option>
+			<option value="3">Item 3 </option>
+			<option value="4">Item 4 </option>
+			<option value="5">Item 5 </option>
+			<option value="6">Item 6 </option>
+			<option value="7">Item 7 </option>
+			<option value="8">Item 8 </option>
+			<option value="9">Item 9 </option>
+		</select>
+		<p id="p1"></p>
+	</div>
+<div>
+	<input type="text" class="txt"/>
+	<p id="p2"></p>
+</div>
+
+
+</body>
+</html>
+

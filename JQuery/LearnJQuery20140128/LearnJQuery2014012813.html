@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Language" content="zh-cn" />
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.0/jquery.min.js">
+</script>
+
+<!--在一个页面中，创建一个img和两个span标记，通过appent()方法img标记插入span标记中-->
+<title>动态插入节点方法</title>
+<style>
+body{
+	font-size: 13px
+}
+img{
+	border: solid 1px #ccc;
+	padding: 3px;
+	margin: 5px
+}
+</style>
+<script>
+$(document).ready(function() {
+	$("img").appendTo($("span"));
+});
+</script>
+</head>
+<body>
+
+<img title="first picture" src="../img/th-3.jpg"/>
+<span><img title="second picture" src="../img/th-2.jpg"/></span>
+</body>
+</html>
+

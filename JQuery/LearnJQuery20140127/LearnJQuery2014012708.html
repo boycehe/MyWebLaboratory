@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Language" content="zh-cn" />
+
+<script src="jquery-1.3.2-release/dist/jquery.min.js">
+</script>
+
+<!--
+	表单对象属性过滤选择器
+-->
+<!--
+		:enabled				获取表单中所有属性为可用的元素				元素集合
+		:disabled				获取表单中所有属性为不可用的元素			    元素集合
+		:checked				获取表单中所有被选中的元素					元素集合
+		:selected				获取表单中所有被选中option的元素			元素集合
+-->
+
+<!--
+		在一个表单中，创建两个文本框的对象，一个属性设置为enabled，另一个属性设置为disabled；再放置两个复选框
+		对象，一个设置成被选中状态，另一个设置成未选中状态；同时新建一个列表框对象，并选中其中的两项，通过表单对象属性过滤
+		选择器获取指定元素，并处理该元素
+-->
+
+
+<title>使用jQuery表单对象属性过滤选择器</title>
+
+<style type="text/css">
+body{
+	font-size: 12px;
+	text-align: center
+}
+
+div{
+	display: none;
+}
+
+select{
+	height: 65px
+}
+
+.clsIpt{
+	width: 100px;
+	padding: 3px
+}
+
+.GetFocus{
+	border: solid 1px #666;
+	background-color: #eee
+}
+
+</style>
+
+
+<script>
+
+$(document).ready(function() {
+	$("#divA").show(3000);
+	$("#form1 input:disabled").addClass('GetFocus');
+	$("#form1 input:disabled").addClass('GetFocus');
+	$("#divB").show(3000);
+	$("#form1 input:checked").addClass('GetFocus');
+	$("#divC").show(3000);
+	$("#Span2").html("选中项是:"+$("select option:selected").text());
+
+});
+
+</script>
+
+
+</head>
+<body>
+
+	<form id="form1" style="width:241px">
+		<div id="divA">
+			<input type="text" value="可用文本框" class="clsIpt">
+			<input type="text" disabled="disabled" value="不可用文本框" class="clsIpt"/>
+		</div>
+
+		<div>
+			<input type="checkbox" checked="checked" vlaue="1"/>
+			<input type="checkbox" value="0"/>
+		</div>
+
+		<div id="divC">
+			<select multiple="multiple">
+				<option value="0">Item 0</option>
+				<option value="1" selected="selected">Item 1</option>
+				<option value="2">Item 2</option>
+				<option value="3" selected="selected">Item 3</option>
+			</select>
+			<span id="Span2"></span>
+		</div>
+	</form>
+
+
+</body>
+</html>
+

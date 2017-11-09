@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Language" content="zh-cn" />
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.0/jquery.min.js">
+</script>
+<!--移除事件
+unbind()的功能是移除元素绑定的事件，其调用的语法格式如下：
+unbind([type],[fn])
+其中，参数type为移除的事件类型，fn为需要移除的事件处理函数；如果该方法没有参数，则移除所有绑定的事件；如果
+带有参数type，则移除该参数所指定的事件类型；如果带有参数fn，则只移除绑定时指定的函数fn。
+
+-->
+
+<!--功能描述
+
+在页面中，设置三个按钮，前两个按钮分别执行各自的事件，第三个按钮通过unbind方法移除所绑定的全部时间。
+-->
+</head>
+<title>移除时间unbind</title>
+<style>
+body{
+	font-size: 13px
+}
+.btn{
+	border: #666 1px solid;
+	padding: 2px;
+	width: 80px;
+	filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr=#ffffff,EndColorStr=#ECE9D8);
+}
+div{
+	line-height: 1.8em
+}
+</style>
+
+<script>
+$(document).ready(function() {
+	function oClick(){
+$("#divTip").append('<div>按钮二的点击时间</div>');
+	}
+	
+	$("input:eq(0)").bind("click",function(){
+		$("#divTip").append("<div>按钮一的点击时间</div>");
+	});
+	$("input:eq(1)").bind('click',oClick);
+	$("input:eq(2)").bind('click',function(){
+		$("input").unbind();
+	});
+
+
+});
+</script>
+
+<body>
+<div>
+	<input id="Button1" type="button" value="按钮一" class="btn"/>
+	<input id="Button2" type="button" value="按钮二" class="btn"/>
+	<input id="Button3" type="button" value="删除事件" class="btn"/>
+</div>
+
+<div id="divTip" style="padding-top:10px"></div>
+
+</body>
+</html>
+

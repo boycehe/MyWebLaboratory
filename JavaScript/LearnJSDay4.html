@@ -1,0 +1,256 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Language" content="zh-cn" />
+<html>
+<body>
+<script>
+x = 5 + 5;
+document.write(x);
+document.write("<br/>");
+x = "5" + "5";
+document.write(x);
+document.write("<br/>");
+x = 5 + "5";
+document.write(x);
+document.write("<br/>");
+x = "5" + 5;
+document.write(x);
+document.write("<br/>");
+</script>
+<h3>规则是：</h3>
+
+<p><strong>如果把数字与字符串相加，结果将成为字符串。</strong></p>
+
+
+<p id = "demo1">This is my first paragraph.</p>
+
+<script>
+function mFunction()
+{
+	if(5 > 3)
+	{
+		document.getElementById("demo1").innerHTML="HAHAHAHAHAHAH";
+	}
+}
+</script>
+
+<button onclick="mFunction()">点击显示详情</button>
+<p id = "date"></p>
+
+<script>
+
+function mmFunction()
+{
+	var x;
+	var d = new Date().getDay();
+	switch(d)
+	{
+		case 0:
+			x = "Today it's Sunday";
+			break;
+		case 1:
+			x = "Today it's Monday";
+			break;
+		case 2:
+			x = "Today it's Tuesday";
+			break;
+
+		case 3:
+			x = "Today it's Wednesday";
+			break;
+
+		case 4:
+			x = "Today it's Thursday";
+			break;
+		case 5:
+			x = "Today it's Friday";
+			break;
+
+		case 6:
+			x = "Today it's Saturday";
+			break;
+
+		default:
+			x = "Today it's Monday";
+			break;
+
+
+	}
+
+	document.getElementById("date").innerHTML=x;
+}
+
+</script>
+
+<button onclick="mmFunction()">显示日期</button>
+
+<script>
+cars=["BMW","Volvo","Saab","Ford"];
+var i=0;
+while (cars[i])
+{
+document.write(cars[i] + "<br>");
+i++;
+}
+</script>
+
+
+<script>
+cars=["aa","bb","cc","dd","eee"];
+list:
+{
+document.write(cars[0] + "<br>"); 
+document.write(cars[1] + "<br>"); 
+document.write(cars[2] + "<br>"); 
+break list;
+document.write(cars[3] + "<br>"); 
+document.write(cars[4] + "<br>"); 
+document.write(cars[5] + "<br>"); 
+};
+/*
+   continue 语句（带有或不带标签引用）只能用在循环中。
+break 语句（不带标签引用），只能用在循环或 switch 中。
+通过标签引用，break 语句可用于跳出任何 JavaScript 代码块：
+ */
+</script>
+
+<script>
+var txt = "";
+
+function message()
+{
+	try
+	{
+		adddlert("Welcome guest");
+	}
+	catch(err)
+	{
+		txt="本页中有一个错误。\n\n";
+		txt+="错误描述:"+ err.message+"\n\n";
+		txt+="点击确定继续。\n\n"
+		alert(txt);
+	}
+
+}
+</script>
+<input type="button" value="查看消息" onclick="message()" />
+
+<script>
+function nFuction()
+{
+	try
+	{
+		var x = document.getElementById("demo2").value;
+		if(x == "") throw "empty";
+		if(isNaN(x)) throw "not a number";
+		if(x>10)     throw "too high";
+		if(x<5)      throw  "too low";
+	}
+	catch(err)
+	{
+		var y = document.getElementById("mess");
+		y.innerHTML = "Error: " + err + ".";
+	}
+}
+</script>
+<input id="demo2" type="text">
+<button type="button" onclick="nFuction()">Test Input</button>
+<p id = "mess"></p>
+
+<script type="text/javascript">
+function validate_email(field,alerttxt)
+{
+	with (field)
+	{
+		apos = value.indexOf("@")
+		dotpos = value.lastIndexOf(".")
+		if (apos < 1 || dotpos - apos < 2)
+		{
+			alert(alerttxt);
+			return false;
+		}
+		else
+		{
+			return true;
+		}
+	}
+
+}
+
+function validate_from(thisform)
+{
+	with(thisform)
+	{
+		if(validate_email(email,"Not a valid e-mail address!" == false))
+		{
+			email.focus();
+			return false;
+		}
+	}
+}
+</script>
+
+<form action = "submitpage.html" onsubmit = "return validate_from(this);" method="post">
+	Email:<input type="text" name="email" size="30">
+	<input type="submit" vaule="Submit">
+	</form>
+
+
+<script type="text/javascript">
+			function CheckForm(objForm)
+			{
+				var rNums=/[0-9]{1}/;
+				if (!rNums.test(objForm.num.value)) 
+				{
+						window.alert('请输入一个数字!');
+						objForm.num.focus();
+						return false;
+				}
+				if (objForm.siteurl.value !='www.dreamdu.com') 
+				{
+						window.alert('请输入梦之都的网址!');
+						objForm.siteurl.focus();
+						return false;
+				}
+			    return true;
+			}
+		</Script>
+
+<form name="form1" method="post" action="/dreamdu.php">
+		请输入一个数字:<input name="num" type="text" value="" /><br />
+		请输入梦之都的网址:<input name="siteurl" type="text" value="" />
+		<input type="submit" name="submit" onClick="javaScript:return CheckForm(form1)" />
+		</form>
+
+
+
+		<div id="main">
+			<p>The DOM is very userful.</p>
+			<p>本例演示<b>getElementByTagName</b> 方法。</p>;
+		</div>
+
+<script>
+var x = document.getElementById("main");
+var y = x.getElementsByTagName("p");
+//通过类名查找 HTML 元素在 IE 5,6,7,8 中无效。
+document.write('id 为 "main" 的div 中的第一段文本是：'+y[0].innerHTML);
+</script>
+
+<img id="image" src="test1.jpg">
+
+<script>
+document.getElementById("image").src = "test2.jpg";
+</script>
+
+<p id = "p1">Hello World!</p>
+<p id = "p2">Hello World!</p>
+
+<script>
+
+
+</body>
+</html>

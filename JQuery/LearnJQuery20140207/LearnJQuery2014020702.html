@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Language" content="zh-cn" />
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.0/jquery.min.js">
+</script>
+<!--功能描述
+	在页面中，设置三个不同名称的选项卡，当点击某个选项卡时，下面相对应的区域显示其他内容信息，同时选项卡的背景色
+	与内容信息的背景色浑然一体，并且字体加粗，表示处于选中状态
+-->
+<style type="text/css">
+body{
+	font-size: 13px
+}
+ul,li{
+	margin: 0;
+	padding: 0;
+	list-style: none
+}
+#menu li{
+	text-align: center;
+	float: left;
+	padding: 5px;
+	margin-right: 2px;
+	width: 50px;
+	cursor: pointer
+}
+#menu li.tabFocus{
+	width: 50px;
+	font-weight: bold;
+	background-color: #f3f2e7;
+	border: solid 1px #666;
+	border-bottom: 0;
+	z-index: 100;
+	position: relative
+}
+#content{
+	width: 260px;
+	height: 80px;
+	padding: 10px;
+	background-color: #f3f2e7;
+	clear: left;
+	border: solid 1px #666;
+	position: relative;
+	top: -1px
+}
+#content li{
+	display: none
+}
+#content li.conFocus{
+	display: block
+}
+
+
+</style>
+<script type="text/javascript">
+$(function () {
+	$("#menu li").each(function(index){
+		$(this).click(function() {
+			$("#menu li.tabFocus").removeClass('tabFocus');
+			$(this).addClass('tabFocus');
+			$("#content li:eq("+ index +")").show()
+			.siblings().hide();
+		});
+	});
+})
+</script>
+</head>
+<body>
+<ul id="menu">
+	<li class="tabFocus">家居</li>
+	<li>电器</li>
+	<li>二手</li>
+</ul>
+<ul id="content">
+	<li class="conFocus">我是家居的内容</li>
+	<li>欢迎您来到电器家具厂</li>
+	<li>二手市场，产品丰富多彩</li>
+</body>
+</html>
+

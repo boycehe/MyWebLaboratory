@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Language" content="zh-cn" />
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.0/jquery.min.js">
+</script>
+<!--移动位置的动画功能描述
+	在页面中，创建两个按钮，单击第一个“左移”按钮后，将页面中的<div>元素在当前的位置上，以动画的效果
+	向左移动52个像素；单击第一个“左移”按钮后，页面中的<div>元素在当前的位置上，以动画的效果
+	向右移动52个像素
+	
+-->
+<title>移动位置的动画</title>
+<style>
+body{
+	font-size: 13px
+}
+.divFrame{
+	border: solid 1px #666;
+	width: 168px;
+	text-align: center
+}
+.divFrame .divTitle{
+	background-color: #eee;
+	padding: 5px 0px 5px 0px
+}
+.divFrame .divContent{
+	width: 108px;
+	height: 52px;
+	padding: 5px 0px 5px 0px;
+	margin: 0px 30px 0px 30px;
+	overflow: hidden
+}
+.divFrame .divContent .divList{
+	width: 162px;
+	position: relative
+}
+.divFrame .divContent .divList span{
+	border: solid 1px #ccc;
+	background-color: #eee;
+	width: 50px;
+	height: 50px;
+	float: left;
+	margin-right: 2px
+}
+.btn{
+	border: #666 1px solid;
+	padding: 2px;
+	width: 60px;
+	filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr=#ffffff,EndColorStr=#ECE9D8);
+}
+</style>
+<script>
+$(function(){
+	$("input:eq(0)").click(function() {
+		$(".divList").animate({left: "-=52px"}, 3000);
+	});
+
+	$("input:eq(1)").click(function() {
+		$(".divList").animate({left: "+=52px"}, 3000);
+	});
+})
+</script>
+
+</head>
+<body>
+<div class="divFrame">
+	<div class="divTitle">
+		<input id="Button1" type="button" value="左移" class="btn"/>&nbsp;
+		<input id="Button2" type="button" value="右移" class="btn"/>
+	</div>
+	<div class="divContent">
+		<div class="divList">
+			<span>1</span>
+			<span>2</span>
+			<span>3</span>
+		</div>
+	</div>
+</div>
+
+</body>
+</html>
+

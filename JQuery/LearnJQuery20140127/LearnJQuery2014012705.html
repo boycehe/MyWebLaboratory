@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Language" content="zh-cn" />
+
+<script src="jquery-1.3.2-release/dist/jquery.min.js">
+</script>
+<!--可见性过滤选择器-->
+<!--
+	:hidden   获取所有不可见的元素，或者type为hidden的元素		元素集合
+	:visible  获取所有的可见元素								元素集合
+-->
+
+<!--
+	在页面中，创建一个<span>和<div>标记，分别设置标记的display属性为:"none"和"block";
+	然后根据可见性过滤选择器显示页面元素
+-->
+
+<title>使用jQuery可见性过滤选择器</title>
+<style type="text/css">
+body{
+	font-size: 12px;
+	text-align: center;
+}
+div,span{
+	float: left;
+	border: solid 1px #ccc;
+	margin: 8px;
+	width: 65px;
+	height: 65px 
+}
+.GetFocus{
+	border: solid 1px #666;
+	background-color: #eee
+}
+
+</style>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("span:hidden").show();
+		$("div:visible").addClass('GetFocus');
+		$("span:hidden").show().addClass('GetFocus');
+	});
+</script>>
+
+</head>
+<body>
+<span style="display:none">Hidden</span>
+<div>Visible</div>
+
+</body>
+</html>
+

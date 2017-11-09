@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Language" content="zh-cn" />
+
+<script src="jquery-1.3.2-release/dist/jquery.min.js">
+</script>
+<title>JavaScript 代码检测页面元素</title>
+<style type="text/javascript">
+body{
+	font-size: 12px;
+	text-align: center;
+}
+</style>
+<script type="text/javascript">
+/*
+window.onload=function(){
+	if (document.getElementById("divT")) {
+		var oDiv = document.getElementById("divT");
+		oDiv.innerHTML="这是一个检测页面";
+	};
+}
+*/
+$(document).ready(function() {
+	$("#divT").html("这是一个检测页面");
+});
+
+
+</script>
+
+
+</head>
+<body>
+
+<p id="divT">呵呵</p>
+
+</body>
+</html>
+

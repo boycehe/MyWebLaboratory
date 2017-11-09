@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Language" content="zh-cn" />
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.0/jquery.min.js">
+</script>
+
+<!--ready()方法的几种相同写法
+1)
+
+$(document).ready(function() {
+	
+});
+
+
+2)
+
+$(function(){
+	
+})
+
+3)
+
+jQuery(document).ready(function($) {
+	
+});
+
+4)
+
+jQuery(function({
+	
+}))
+-->
+
+<!--bind()功能是为每个选择元素的事件绑定处理函数，其语法格式如下
+bind(type,[data],fn)
+
+其中参数type为一个或多个类型的字符串，如”click“ 或“change”，也可以自定义类型：可以被参数
+type调用的类型包括blur，focus，load，resize，scroll，unload，click，dblclick，mousedown，mouseup，mousemove，mouseover，mouseout
+，mouseenter，mouseleave，change，select，submit，keydown，keypress，keyup，error。
+参数data是作为event。data属性值传递给事件对象额外数据对象。
+参数fn是绑定到每个选择元素的事件中的处理函数。
+
+-->
+
+<!--功能描述
+	在页面中，设置一个按钮，通过bind方法给按钮绑定一个click事件，在该事件中，将自身是否可以用属性设置成false
+	，即单机按钮后就不可使用。
+-->
+<title>方法绑定事件</title>
+<style>
+.btn{
+	border: #666 1px solid;
+	padding: 2px;
+	width: 50px;
+	filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr=#ffffff,EndColorStr=#ECE9D8);
+}
+</style>
+
+<script>
+$(document).ready(function() {
+	
+	$("#btnBind").bind("click",function(){
+		$(this).attr('disabled', 'disabled');
+	})
+});
+</script>
+
+</head>
+
+<body>
+<input id="btnBind" type="button" value="Button" class="btn"/>
+
+</body>
+</html>
+

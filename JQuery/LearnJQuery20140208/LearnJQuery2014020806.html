@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Language" content="zh-cn" />
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.0/jquery.min.js">
+</script>
+<!--fadeIn()与fadeOut()方法
+show()和hide()方法与fadeIn()和fadeOut()方法相比较，相同之处是逗切换元素的显示状态，不同之处在于，
+前者的动画效果使用元素的width与height属性都发生了变化，而后者仅仅是
+修改元素的透明度，并不修改其他属性。fadeIn()和fadeOut()方法调用格式
+介绍如下。
+fadeIn()方法的格式如下：
+fadeIn(speed,[callback]);
+该方法的功能是通过改变所选元素透明度，实现淡入的动画效果，并在完成时，可执行一个回调的函数。参数speed为动画效果的速度，可选项参数[callback]
+为动画完成时执行的函数
+fadeOut()方法的格式如下:
+fadeOut(speed,[callback]);
+该方法的功能是通过改变所选元素的透明度，实现淡出的动画效果，其包含参数的功能与fadeIn()方法一样
+
+-->
+<style type="text/css">
+.divFrmae{
+	border: solid 1px #666;
+	width: 188px;
+	text-align: center
+}
+.divFrmae .divTitle{
+	background-color: #eee;
+	padding: 5px 0px 5px 0px
+}
+.divFrmae .divContent{
+	padding: 5px 0px 5px 0px
+}
+.divFrmae .divContent img{
+	border: solid 1px #eee;
+	padding: 2px
+}
+.divFrmae .divTip{
+	position: absolute;
+	padding: 90px 0px 60px;
+	font-size: 13px;
+	font-weight: bold
+}
+.btn{
+	border: #666 1px solid;
+	padding: 2px;
+	width: 80px;
+	filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr=#ffffff,EndColorStr=#ECE9D8);
+}
+</style>
+<script>
+$(function(){
+	$img = $("img");
+	$tip = $(".divTip");
+	$("input:eq(0)").click(function() {
+		$tip.html("");
+		$img.fadeIn(3000, function() {
+			$tip.html('淡入成功');
+		});
+	});
+	$("input:eq(1)").click(function(){
+		$tip.html("");
+		$img.fadeOut(3000, function() {
+			$tip.html('淡出成功');
+		});
+	})
+})
+</script>
+</head>
+<body>
+<div class="divFrame">
+	<div class="divTitle">
+		<input id="Button1" type="button" value="fadeIn" class="btn"/>
+		<input id="Button2" type="button" value="fadeOut" class="btn"/>
+	</div>
+	<div class="divContent">
+		<div class="divTip"></div>
+		<img src="../img/th-1.jpg" alt="" title="风景图片"/>
+	</div>
+</div>
+
+</body>
+</html>
+
